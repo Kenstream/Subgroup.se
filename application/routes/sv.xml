@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<routes>
+    <cloud type="Zend_Controller_Router_Route_Hostname">
+        <route>cfar.subgroup.se</route>
+        <defaults lang="sv" />
+        <chains>
+
+            <index type="Zend_Controller_Router_Route_Static">
+                <route></route>
+                <defaults controller="index" action="index" />
+            </index>
+            <logout type="Zend_Controller_Router_Route_Static">
+                <route>logga-ut</route>
+                <defaults controller="index" action="logout" />
+            </logout>
+            <dashboard type="Zend_Controller_Router_Route_Static">
+                <route>dashboard</route>
+                <defaults controller="user" action="dashboard" />
+            </dashboard>
+            <change-language type="Zend_Controller_Router_Route">
+                <route>lang/:lang</route>
+                <reqs lang="[a-z]{2}" />
+                <defaults controller="index" action="change-language" lang="sv" />
+            </change-language>
+            <forget-password type="Zend_Controller_Router_Route_Static">
+                <route>glomt-losenord</route>
+                <defaults controller="index" action="forget-password" />
+            </forget-password>
+
+            <user type="Zend_Controller_Router_Route">
+                <route>medlem</route>
+                <chains>
+                    <edit type="Zend_Controller_Router_Route">
+                        <route>redigera/:id</route>
+                        <reqs id="[0-9]+" />
+                        <defaults controller="user" action="edit" id="" />
+                    </edit>
+                    <detail type="Zend_Controller_Router_Route">
+                        <route>detalj/:id</route>
+                        <reqs id="[0-9]+" />
+                        <defaults controller="user" action="detail" id="" />
+                    </detail>
+                    <delete type="Zend_Controller_Router_Route">
+                        <route>radera/:id</route>
+                        <reqs id="[0-9]+" />
+                        <defaults controller="user" action="delete" />
+                    </delete>
+                    <list type="Zend_Controller_Router_Route">
+                        <route>:page</route>
+                        <reqs page="[0-9]+" />
+                        <defaults controller="user" action="index" />
+                    </list>
+                    <result type="Zend_Controller_Router_Route_Static">
+                        <route>resultat</route>
+                        <defaults controller="user" action="result" />
+                    </result>
+                    <create type="Zend_Controller_Router_Route_Static">
+                        <route>skapa</route>
+                        <defaults controller="user" action="create" />
+                    </create>
+                    <index type="Zend_Controller_Router_Route_Static">
+                        <route></route>
+                        <defaults controller="user" action="index" page="1"/>
+                    </index>
+                </chains>
+            </user>
+
+            <project type="Zend_Controller_Router_Route">
+                <route>projekt</route>
+                <chains>
+                    <edit type="Zend_Controller_Router_Route">
+                        <route>redigera/:id</route>
+                        <reqs id="[0-9]+" />
+                        <defaults controller="project" action="edit" />
+                    </edit>
+                    <detail type="Zend_Controller_Router_Route">
+                        <route>detalj/:id</route>
+                        <reqs id="[0-9]+" />
+                        <defaults controller="project" action="detail" id="" />
+                    </detail>
+                    <chart-detail type="Zend_Controller_Router_Route">
+                        <route>chart-detalj/:id</route>
+                        <reqs id="[0-9]+" />
+                        <defaults controller="project" action="chart-detail" id="" />
+                    </chart-detail>
+                    <delete type="Zend_Controller_Router_Route">
+                        <route>radera/:id</route>
+                        <reqs id="[0-9]+" />
+                        <defaults controller="project" action="delete" />
+                    </delete>
+                    <list type="Zend_Controller_Router_Route">
+                        <route>:page</route>
+                        <reqs page="[0-9]+" />
+                        <defaults controller="project" action="index" />
+                    </list>
+                    <create type="Zend_Controller_Router_Route_Static">
+                        <route>skapa</route>
+                        <defaults controller="project" action="create" />
+                    </create>
+                    <index type="Zend_Controller_Router_Route_Static">
+                        <route></route>
+                        <defaults controller="project" action="index" page="1" />
+                    </index>
+                </chains>
+            </project>
+
+            <scenario type="Zend_Controller_Router_Route">
+                <route>scenario</route>
+                <chains>
+                    <detail type="Zend_Controller_Router_Route">
+                        <route>detalj/:id</route>
+                        <reqs id="[0-9]+" />
+                        <defaults controller="scenario" action="detail" />
+                    </detail>
+                    <edit type="Zend_Controller_Router_Route">
+                        <route>redigera/:id</route>
+                        <reqs id="[0-9]+" />
+                        <defaults controller="scenario" action="edit" />
+                    </edit>
+                    <delete type="Zend_Controller_Router_Route">
+                        <route>radera/:id</route>
+                        <reqs id="[0-9]+" />
+                        <defaults controller="scenario" action="delete" />
+                    </delete>
+                    <list type="Zend_Controller_Router_Route">
+                        <route>:page</route>
+                        <reqs page="[0-9]+" />
+                        <defaults controller="scenario" action="index" />
+                    </list>
+                    <question-edit type="Zend_Controller_Router_Route">
+                        <route>redigera-fraga/:id</route>
+                        <reqs id="[0-9]+" />
+                        <defaults controller="scenario" action="question-edit" />
+                    </question-edit>
+                    <question-delete type="Zend_Controller_Router_Route">
+                        <route>radera-fraga/:id</route>
+                        <reqs id="[0-9]+" />
+                        <defaults controller="scenario" action="question-delete" />
+                    </question-delete>
+                    <question-create type="Zend_Controller_Router_Route">
+                        <route>skapa-fraga/:id</route>
+                        <reqs id="[0-9]+" />
+                        <defaults controller="scenario" action="question-create" />
+                    </question-create>
+                    <section-edit type="Zend_Controller_Router_Route">
+                        <route>redigera-sektion/:id</route>
+                        <reqs id="[0-9]+" />
+                        <defaults controller="scenario" action="section-edit" />
+                    </section-edit>
+                    <section-delete type="Zend_Controller_Router_Route">
+                        <route>radera-sektion/:id</route>
+                        <reqs id="[0-9]+" />
+                        <defaults controller="scenario" action="section-delete" />
+                    </section-delete>
+                    <section-create type="Zend_Controller_Router_Route">
+                        <route>skapa-sektion/:id</route>
+                        <reqs id="[0-9]+" />
+                        <defaults controller="scenario" action="section-create" />
+                    </section-create>
+                    <create type="Zend_Controller_Router_Route_Static">
+                        <route>skapa</route>
+                        <defaults controller="scenario" action="create" />
+                    </create>
+                    <index type="Zend_Controller_Router_Route_Static">
+                        <route></route>
+                        <defaults controller="scenario" action="index" page="1" />
+                    </index>
+                </chains>
+            </scenario>
+
+            <assessment type="Zend_Controller_Router_Route">
+                <route>bedomning</route>
+                <chains>
+                    <edit type="Zend_Controller_Router_Route">
+                        <route>redigera/:id</route>
+                        <reqs id="[0-9]+" />
+                        <defaults controller="assessment" action="edit" />
+                    </edit>
+                    <delete type="Zend_Controller_Router_Route">
+                        <route>radera/:id</route>
+                        <reqs id="[0-9]+" />
+                        <defaults controller="assessment" action="delete" />
+                    </delete>
+                    <list type="Zend_Controller_Router_Route">
+                        <route>:page</route>
+                        <reqs page="[0-9]+" />
+                        <defaults controller="assessment" action="index" />
+                    </list>
+                    <create type="Zend_Controller_Router_Route_Static">
+                        <route>skapa</route>
+                        <defaults controller="assessment" action="create" />
+                    </create>
+                    <index type="Zend_Controller_Router_Route_Static">
+                        <route></route>
+                        <defaults controller="assessment" action="index" page="1" />
+                    </index>
+                </chains>
+            </assessment>
+
+            <result type="Zend_Controller_Router_Route">
+                <route>resultat</route>
+                <chains>
+                    <detail type="Zend_Controller_Router_Route">
+                        <route>detalj/:id</route>
+                        <reqs id="[0-9]+" />
+                        <defaults controller="result" action="detail" />
+                    </detail>
+                    <index type="Zend_Controller_Router_Route">
+                        <route>oversikt/:id</route>
+                        <reqs id="[0-9]+" />
+                        <defaults controller="result" action="index" />
+                    </index>
+                </chains>
+            </result>
+
+            <form type="Zend_Controller_Router_Route">
+                <route>formular/:id</route>
+                <reqs id="[0-9]+" />
+                <defaults controller="form" action="edit" />
+            </form>
+
+            <notification type="Zend_Controller_Router_Route">
+                <route>anmalningar</route>
+                <chains>
+                    <index type="Zend_Controller_Router_Route_Static">
+                        <route></route>
+                        <defaults controller="notification" action="index" />
+                    </index>
+                </chains>
+            </notification>
+
+            <ajax type="Zend_Controller_Router_Route">
+                <route>ajax/:action</route>
+                <defaults controller="ajax" />
+            </ajax>
+
+        </chains>
+    </cloud>
+</routes>

@@ -1,0 +1,68 @@
+<div class="row">
+    <div class="span9">
+        <?php echo $this->breadcrumb($this->params); ?>
+        <?php echo $this->alert($this->messages); ?>
+        <div class="well">
+            <form method="post" action="">
+                <legend><?php echo $this->invitation->getScenario()->getTitle(); ?></legend>
+                <p>
+                    <span class="label label-info"><?php echo $this->translate("INFORMATION"); ?></span>
+                    <?php echo $this->invitation->getScenario()->getDescription(); ?>
+                </p>
+                <?php $totalSections = sizeof($this->invitation->getScenario()->getSections()); ?>
+                <div class="accordion" id="accordion-parent">
+                <?php foreach($this->invitation->getScenario()->getSections() as $sectionIndex => $section) { ?>
+                    <?php $sectionNo = $sectionIndex + 1; ?>
+                    <div class="accordion-group" style="background:#fafafa;">
+                        <div class="accordion-heading">
+                            <a href="#collapse-child-<?php echo $sectionNo; ?>" class="accordion-toggle" data-toggle="collapse" data-parent="accordion-parent"><b><?php echo $sectionNo; ?>. <?php echo $section->getTitle(); ?> ( <?php echo $sectionNo; ?>/<?php echo $totalSections; ?> )</b></a>
+                        </div>
+                        <div id="collapse-child-<?php echo $sectionNo; ?>" class="accordion-body collapse <?php if($sectionIndex == 0) echo 'in'; ?>">
+                            <div class="accordion-inner">
+                                <fieldset>
+                                    <?php
+                                    if (strlen($section->getDescription()) > 0) {
+                                        echo '<p><span class="label label-info">'  . $this->translate("INFORMATION") . '</span> <span style="font-style: italic; color:#393;">' . $section->getDescription() . '</span></p>';
+                                    }
+                                    $formElements = array();
+                                    foreach($section->getElements() as $elementIndex => $element) {
+                                        $elementClassName = "SG_Form_Element_" . ucwords($element->getType());
+                                        $elementClass = new $elementClassName('element_form_' . $element->getId());
+                                        $elementClass->setLabel($element->getLabel());
+
+                                        if ($this->disableForm) {
+                                            $elementClass->setAttrib('disabled', 'disabled');
+                                        }
+
+                                        if (!is_null($element->getJsonDefaultValue())) {
+                                            if (in_array($element->getType(),array('radio', 'select'))) {
+                                                $arrayValues = json_decode($element->getJsonDefaultValue(),true);
+                                                $elementClass->addMultiOptions($arrayValues['values']);
+
+                                            }
+                                        }
+
+                                        // try to get value if exist
+                                        if (array_key_exists('element_form_' . $element->getId(), $this->formAnswers)) {
+                                            $elementClass->setValue($this->formAnswers['element_form_' . $element->getId()]);
+                                        }
+
+                                        if ($element->getType() == 'checkbox') {
+                                            echo str_replace('</label>', $element->getLabel() . '</label>', $elementClass);
+                                        } else {
+                                            echo $elementClass;
+                                        }
+                                    }
+                                    ?>
+                                </fieldset>
+                            </div>
+                        </div>
+                    </div>
+                <?php } ?>
+                <div class="form-actions">
+                <button type="submit" class="btn btn-primary"<?php if($this->disableForm) { echo ' disabled="disabled"'; } ?>><?php echo $this->translate("Save"); ?></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

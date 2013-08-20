@@ -1,0 +1,136 @@
+<div class="well well-small" style="background-color: #fcfcfc; margin-top: 10px;">
+    <ul style="list-style:none; margin-left: 0;">
+        <?php foreach($this->mainMean['childs'] as $subMainMean) { ?>
+        <li>
+            <p>
+                <i class="icon-info-sign"></i> <b><?php echo $subMainMean['name']; ?></b>
+                <?php
+                    foreach($subMainMean['mean'] as $type => $meanValue) {
+                        $badge = "badge-warning";
+                        if ($meanValue <= 2.5) {
+                            $badge = "badge-important";
+                        } else if ($meanValue > 3.5) {
+                            $badge = "badge-success";
+                        }
+                        if (isset($this->displayOnly) && $type != $this->displayOnly) continue;
+                ?>
+                    <span class="badge <?php echo $badge; ?> pull-right" style="margin-left: 5px;"><?php echo sprintf("%.2f", $meanValue); ?></span>
+                    <span class="pull-right" style="font-size: 12px; margin-left: 10px;"><?php echo sprintf("%s (%s):", ($type == \Entities\Invitation::TYPE_LEADER) ? $this->translate("Leader") : $this->translate("Members"), $type); ?></span>
+                <?php } ?>
+            </p>
+            <?php if($this->identity->role != \Entities\User::TYPE_USER) { ?>
+            <ul style=" margin: 0px; margin-bottom: 20px; list-style: none;" class="accordion" id="accordion-sub-mean-<?php echo $subMainMean['id']; ?>">
+                <?php foreach($subMainMean['childs'] as $endMeanIndex => $endMean) { ?>
+                <li class="accordion-group">
+                    <div class="accordion-heading">
+                        <a style="color:#0d233a;" class="accordion-toggle" data-toggle="collapse" data-parent="accordion-sub-mean-<?php echo $subMainMean['id']; ?>" href="#collapse-<?php echo $endMean['id']; ?>">
+                            <?php echo $this->truncate($endMean['name'], 0, 100); ?>
+                <?php
+                    foreach($endMean['mean'] as $type => $meanValue) {
+                        $badge = "badge-warning";
+                        if ($meanValue <= 2.5) {
+                            $badge = "badge-important";
+                        } else if ($meanValue > 3.5) {
+                            $badge = "badge-success";
+                        }
+                        if (isset($this->displayOnly) && $type != $this->displayOnly) continue;
+                ?>
+                            <span class="badge <?php echo $badge; ?> pull-right" style="margin-left: 10px"><?php echo sprintf("%s: %.2f", $type, $meanValue); ?></span>
+                <?php } ?>
+                        </a>
+                    </div>
+                    <div id="collapse-<?php echo $endMean['id']; ?>" class="accordion-body collapse">
+                        <?php if(sizeof($endMean['stats']) > 0) { ?>
+                        <div id="hc-detailed-view-stats-<?php echo $endMean['id'];?>" style="min-width: 300px; min-height: 200px; margin: 0 auto"></div>
+                        <?php
+                        $statPivotValues = array();
+                        foreach($endMean['stats'] as $type => $statValues) {
+                            $statCategories[] = ($type == Entities\Invitation::TYPE_LEADER) ?
+                                "'" . $this->translate("Leader"). "'" : "'" . $this->translate("Members") . "'";
+
+                            foreach($statValues as $name => $value) {
+                                $statPivotValues[$name][$type] = $value;
+                            }
+                        }
+                        ?>
+                        <script>
+                            $(function () {
+                                $('#hc-detailed-view-stats-<?php echo $endMean['id'];?>').highcharts({
+                                    chart: {
+                                        type: 'bar'
+                                    },
+                                    colors: [
+                                        '#81f884', '#78e57b', '#67c669', '#5cac5e', '#468847', '#3a6f3b', '#203f21'
+                                    ],
+                                    tooltip: {
+                                        formatter: function() {
+                                            return '<b>'+ this.series.name +'</b>: '+ Math.round(this.percentage) +' %';
+                                         }
+                                    },
+                                    title: {
+                                        text: '<?php echo $this->translate("Detailed answers distribution"); ?>'
+                                    },
+                                    xAxis: {
+                                        categories: [<?php echo join(",", $statCategories); ?>]
+                                    },
+                                    yAxis: {
+                                        min: 0,
+                                        title: {
+                                            text: '<?php echo $this->translate("Answers distribution"); ?>'
+                                        },
+                                    },
+                                    legend: {
+                                        backgroundColor: '#FFFFFF',
+                                        reversed: true
+                                    },
+                                    credits: {
+                                        href: 'http://www.subgroup.se',
+                                        text: 'Subgroup Consulting AB'
+                                    },
+                                    plotOptions: {
+                                        series: {
+                                            stacking: 'percent',
+                                        }
+                                    },
+                                        series: [
+                                        <?php $j=0;foreach($statPivotValues as $name => $type) { $j++;?>
+                                        {
+                                        name: '<?php echo $this->translate("Value of") ." " . $name; ?>',
+                                        data: [<?php echo join(",", $statPivotValues[$name]); ?>]
+                                        }
+                                        <?php if($j != sizeof($statValues)) {echo ",";} ?>
+                                        <?php } ?>
+                                        ]
+                                });
+                            });
+                        </script>
+                        <?php } ?>
+                    </div>
+                </li>
+                <?php } ?>
+            </ul>
+            <?php } else { ?>
+            <ul style=" margin: 0px; margin-bottom: 20px; list-style: none;">
+                <?php foreach($subMainMean['childs'] as $endMeanIndex => $endMean) { ?>
+                <li>
+                <?php echo $this->truncate($endMean['name'], 0, 100); ?>
+                <?php
+                    foreach($endMean['mean'] as $type => $meanValue) {
+                        $badge = "badge-warning";
+                        if ($meanValue <= 2.5) {
+                            $badge = "badge-important";
+                        } else if ($meanValue > 3.5) {
+                            $badge = "badge-success";
+                        }
+                        if (isset($this->displayOnly) && $type != $this->displayOnly) continue;
+                ?>
+                            <span class="badge <?php echo $badge; ?> pull-right" style="margin-left: 10px"><?php echo sprintf("%s: %.2f", $type, $meanValue); ?></span>
+                <?php } ?>
+                </li>
+                <?php } ?>
+            </ul>
+            <?php } ?>
+        </li>
+        <?php } ?>
+    </ul>
+</div>

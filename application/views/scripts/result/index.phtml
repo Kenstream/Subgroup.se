@@ -1,0 +1,148 @@
+<?php echo $this->alert($this->messages); ?>
+<?php if (sizeof($this->means) > 0) { ?>
+<div id="hc-container-<?php echo $this->project->getId(); ?>" style="min-width: 240px; min-height: 400px; margin: 0 auto"></div>
+<?php if($this->identity->role == \Entities\User::TYPE_USER && $this->userRoleInProject == \Entities\Invitation::TYPE_MEMBER) { ?>
+<script>
+    $(function () {
+        $('#hc-container-<?php echo $this->project->getId(); ?>').highcharts({
+            chart: {
+                type: 'bar'
+            },
+            title: {
+                text: '<?php echo $this->project->getTitle(); ?>'
+            },
+            xAxis: {
+                categories: [
+                    '<?php echo $this->translate("Overview assessment"); ?>',
+                ],
+            },
+            yAxis: {
+                min: 0,
+                max: 5,
+                title: {
+                    text: '<?php echo $this->translate("Group index"); ?>'
+                },
+            },
+            legend: {
+                layout: 'vertical',
+                verticalAlign: 'bottom',
+                borderWidth: 1,
+                backgroundColor: '#FFFFFF',
+                shadow: true,
+                reversed: true
+            },
+            tooltip: {
+                headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                    '<td style="padding:0"><b>{point.y:.1f}</b></td></tr>',
+                footerFormat: '</table>',
+                shared: true,
+                useHTML: true
+            },
+            plotOptions: {
+                bar: {
+                    dataLabels: {
+                        enabled: true
+                    }
+                }
+            },
+            credits: {
+                href: 'http://www.subgroup.se',
+                text: 'Subgroup Consulting AB'
+            },
+            series: [
+            <?php $i = 0; foreach($this->means as $key => $mean) { $i++; if ($i == 3) continue; ?>
+            {
+                name: '<?php echo $key; ?>',
+                data: [<?php echo sprintf("%.2f", $mean['M']); ?>]
+
+            }<?php echo ($i != sizeof($this->means))? ',':'';?>
+            <?php } ?>
+            ]
+        });
+    });
+</script>
+<?php } else { ?>
+<script>
+    $(function () {
+        $('#hc-container-<?php echo $this->project->getId(); ?>').highcharts({
+            chart: {
+                type: 'bar'
+            },
+            title: {
+                text: '<?php echo $this->project->getTitle(); ?>'
+            },
+            xAxis: {
+                categories: [
+                <?php $i = 0; foreach($this->means as $key => $mean) { $i++;?>
+                    '<?php echo $key; ?>',
+                <?php } ?>
+                ],
+            },
+            yAxis: {
+                min: 0,
+                max: 5,
+                title: {
+                    text: '<?php echo $this->translate("Overview assessment"); ?>'
+                },
+            },
+            legend: {
+                layout: 'vertical',
+                verticalAlign: 'bottom',
+                borderWidth: 1,
+                backgroundColor: '#FFFFFF',
+                shadow: true,
+                reversed: true
+            },
+            tooltip: {
+                headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                    '<td style="padding:0"><b>{point.y:.1f}</b></td></tr>',
+                footerFormat: '</table>',
+                shared: true,
+                useHTML: true
+            },
+            plotOptions: {
+                bar: {
+                    dataLabels: {
+                        enabled: true
+                    }
+                }
+            },
+            credits: {
+                href: 'http://www.subgroup.se',
+                text: 'Subgroup Consulting AB'
+            },
+            <?php
+            $meanLeader = array();
+            $meanMember = array();
+            foreach($this->means as $mean) {
+                if (array_key_exists(Entities\Invitation::TYPE_LEADER, $mean)) {
+                    $meanLeader[] = $mean[Entities\Invitation::TYPE_LEADER];
+                } else {
+                    $meanLeader[] = 0;
+                }
+
+                if (array_key_exists(Entities\Invitation::TYPE_MEMBER, $mean)) {
+                    $meanMember[] = $mean[Entities\Invitation::TYPE_MEMBER];
+                } else {
+                    $meanMember[] = 0;
+                }
+            }
+            ?>
+            series: [
+            {
+                name: '<?php echo $this->translate("Team Leader"); ?>',
+                data: [<?php echo join(',', $meanLeader); ?>]
+            },
+            {
+                name: '<?php echo $this->translate("Team Members"); ?>',
+                data: [<?php echo join(',', $meanMember); ?>]
+            }
+            ]
+        });
+    });
+</script>
+<a href="<?php echo $this->routeUrl('cloud-project-chart-detail', array('id' => $this->project->getId())); ?>" class="btn btn-primary" style="margin-top: 10px;"><i class="icon-eye-open icon-white"></i> <?php echo $this->translate("View detail"); ?></a>
+<?php } ?>
+<?php } ?>

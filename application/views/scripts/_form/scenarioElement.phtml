@@ -1,0 +1,32 @@
+<form enctype="application/x-www-form-urlencoded" action="" method="post">
+    <fieldset>
+        <legend><?php echo $this->element->getLegend(); ?></legend>
+
+        <?php echo $this->element->label ?>
+        <?php echo $this->element->infoText ?>
+        <?php echo $this->element->type ?>
+        <?php echo $this->element->section ?>
+        <?php echo $this->element->category ?>
+
+        <script type="text/javascript">
+            var toggleSectionAndCategory = function(){
+                var elType = $('#selectType').val();
+                if (elType === 'text' ||
+                    elType === 'textarea' ||
+                    elType === 'checkbox') {
+
+                    $('#selectCategory').val('0').attr('disabled', 'disabled');
+                } else {
+                    $('#selectCategory').removeAttr('disabled');
+                }
+            };
+
+            $(function(){
+                toggleSectionAndCategory();
+                $('#selectType').change(function(){toggleSectionAndCategory();});
+            });
+        </script>
+
+        <?php echo $this->element->submit ?>
+    </fieldset>
+</form>

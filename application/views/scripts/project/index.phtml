@@ -1,0 +1,46 @@
+<div class="row">
+    <div class="span9">
+        <?php echo $this->breadcrumb($this->params); ?>
+        <?php echo $this->alert($this->messages); ?>
+        <?php echo $this->alert($this->flashMessages); ?>
+        <div class="row">
+            <a href="<?php echo $this->routeUrl('cloud-project-create'); ?>" class="btn btn-primary pull-right"><i class="icon-plus icon-white"></i> <?php echo $this->translate('Create new project'); ?></a>
+        </div>
+        <?php if (sizeof($this->projectPaginator) > 0) { ?>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th><?php echo $this->translate("Title"); ?></th>
+                    <th><?php echo $this->translate("Description"); ?></th>
+                    <th><?php echo $this->translate("# of users"); ?></th>
+                    <th><?php echo $this->translate("Action"); ?></th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach($this->projectPaginator->getCurrentItems() as $index => $project) { ?>
+                <tr>
+                    <td><?php echo $index+1; ?></td>
+                    <td><?php echo $project->getTitle(); ?></td>
+                    <td style="max-width: 350px;"><?php echo $project->getDescription(); ?></td>
+                    <td style="text-align: center;"><?php echo sizeof($project->getInvitations()); ?></td>
+                    <td>
+                        <div class="btn-group">
+                          <a href="<?php echo $this->routeUrl('cloud-project-edit', array('id' => $project->getId())); ?>" class="btn"><i class="icon-edit"></i></a>
+                          <a href="<?php echo $this->routeUrl('cloud-project-detail', array('id' => $project->getId())); ?>" class="btn"><i class="icon-info-sign"></i></a>
+                          <a href="<?php echo $this->routeUrl('cloud-project-delete', array('id' => $project->getId())); ?>" class="btn btn-remove"><i class="icon-remove"></i></a>
+                        </div>
+                    </td>
+                </tr>
+                <?php } ?>
+            </tbody>
+        </table>
+        <script type="text/javascript">
+            $('.btn-remove').click(function(e){
+                var response = confirm("<?php echo $this->translate('Are you sure you want to delete this object?'); ?>");
+                return response;
+            });
+        </script>
+        <?php } ?>
+    </div>
+</div>

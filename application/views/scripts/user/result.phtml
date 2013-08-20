@@ -1,0 +1,15 @@
+<div class="row">
+    <div class="span9">
+        <ul class="breadcrumb well well-small">
+            <li class="active"><i class="icon-eye-open"></i> <?php echo $this->translate("Results"); ?></li>
+        </ul>
+        <ul style="list-style: none; margin-left: 0">
+            <?php foreach($this->invitations as $invitation) { ?>
+            <li class="span4 well well-small">
+                <p><i class="icon-tasks"></i> <b><?php echo $invitation->getProject()->getTitle(); ?></b></p>
+                <p><?php echo $this->action('index', 'result', null, array('id' => $invitation->getProject()->getId())); ?></p>
+            </li>
+            <?php } ?>
+        </ul>
+    </div>
+</div>

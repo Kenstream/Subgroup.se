@@ -1,0 +1,41 @@
+<div class="row">
+    <div class="span9">
+        <?php if($this->identity->role == Entities\User::TYPE_USER) { ?>
+        <?php echo $this->action('detail', 'user', null, $this->params); ?>
+        <?php } else { ?>
+        <?php echo $this->breadcrumb($this->params); ?>
+        <ul class="row" style="list-style: none;">
+            <li class="span4">
+                <div class="well well-small"  style="min-height: 180px;">
+                    <h4><i class="icon-user"></i> <?php echo $this->translate("User"); ?> <span class="badge pull-right"><?php echo $this->total['user']; ?> <?php echo $this->translate("users"); ?></span></h4>
+                    <p><?php echo $this->translate("Create user first and assign them to a project in a group. Manage and view user's progress of each assessment.");?></p><br />
+                    <p><a href="<?php echo $this->routeUrl('cloud-user-index'); ?>" class="btn btn-primary"><?php echo $this->translate("Go to users"); ?></a></p>
+                </div>
+            </li>
+            <li class="span4">
+                <div class="well well-small" style="min-height: 180px;">
+                    <h4><i class="icon-book"></i> <?php echo $this->translate("Project"); ?> <span class="badge pull-right"><?php echo $this->total['project']; ?> <?php echo $this->translate("projects"); ?></span></h4>
+                    <p><?php echo $this->translate("Start a project to begin assemble a group and send an assessment through email invitation. Manage on-going project and delete a project if necessary.");?></p><br />
+                    <p><a href="<?php echo $this->routeUrl('cloud-project-index'); ?>" class="btn btn-primary"><?php echo $this->translate("Go to projects"); ?></a></p>
+                </div>
+            </li>
+            <?php if($this->identity->role == Entities\User::TYPE_SUPER_ADMIN) { ?>
+            <li class="span4">
+                <div class="well well-small"  style="min-height: 180px;">
+                    <h4><i class="icon-list"></i> <?php echo $this->translate("Scenario"); ?> <span class="badge pull-right"><?php echo $this->total['scenario']; ?> <?php echo $this->translate("scenarios"); ?></span></h4>
+                    <p><?php echo $this->translate("Create scenario assessment which will be send to the user within a project and calculated based on its category.");?></p><br />
+                    <p><a href="<?php echo $this->routeUrl('cloud-scenario-index'); ?>" class="btn btn-primary"><?php echo $this->translate("Go to scenarios"); ?></a></p>
+                </div>
+            </li>
+            <li class="span4">
+                <div class="well well-small"  style="min-height: 180px;">
+                    <h4><i class="icon-tags"></i> <?php echo $this->translate("Assessment category"); ?> <span class="badge pull-right"><?php echo $this->total['assessment']; ?> <?php echo $this->translate("categories"); ?></span></h4>
+                    <p><?php echo $this->translate("Create assessment category which will be matched with the answers given by the user, transformed and calculated into charts based on its main category.");?></p><br />
+                    <p><a href="<?php echo $this->routeUrl('cloud-assessment-index'); ?>" class="btn btn-primary"><?php echo $this->translate("Go to assessment categories"); ?></a></p>
+                </div>
+            </li>
+            <?php } ?>
+        </ul>
+        <?php } ?>
+    </div>
+</div>

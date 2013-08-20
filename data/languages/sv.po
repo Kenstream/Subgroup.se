@@ -1,0 +1,855 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Subgroup CloudForm\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-04-29 11:39+0100\n"
+"PO-Revision-Date: 2013-04-29 17:46+0100\n"
+"Last-Translator: Agustinus P <aw@openratio.com>\n"
+"Language-Team: Subgroup IT development <agustinus.widodo@gmail.com>\n"
+"Language: sv_SE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;translate\n"
+"X-Poedit-Basepath: /home/prasoei/Sites/cloud.subgroup.se/\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Generator: Poedit 1.5.5\n"
+"X-Poedit-SearchPath-0: application\n"
+"X-Poedit-SearchPath-1: library/SG\n"
+
+#: application/controllers/ScenarioController.php:41
+msgid "You have not create any scenario yet."
+msgstr "Du har än inte skapat något formulär."
+
+#: application/controllers/ScenarioController.php:117
+msgid "A scenario has been created, you can add sections and questions to the scenario."
+msgstr "Du har skapat ett formulär, nu kan du lägga till kategorier och frågor till formuläret."
+
+#: application/controllers/ScenarioController.php:123
+#: application/controllers/ScenarioController.php:170
+#: application/controllers/ScenarioController.php:303
+#: application/controllers/ScenarioController.php:409
+#: application/controllers/ScenarioController.php:482
+#: application/controllers/ScenarioController.php:526
+#: application/controllers/AssessmentController.php:61
+#: application/controllers/AssessmentController.php:126
+#: application/controllers/AssessmentController.php:183
+#: application/controllers/FormController.php:85
+#: application/controllers/FormController.php:106
+#: application/controllers/ProjectController.php:133
+#: application/controllers/ProjectController.php:309
+#: application/controllers/UserController.php:356
+msgid "Server is busy to process your request. Please try again later."
+msgstr "Servern kan inte behandla ditt ärende. Försök igen om en stund."
+
+#: application/controllers/ScenarioController.php:147
+#: application/controllers/ScenarioController.php:326
+msgid "Save"
+msgstr "Spara"
+
+#: application/controllers/ScenarioController.php:150
+msgid "Update scenario information"
+msgstr "Uppdatera informationen i formuläret."
+
+#: application/controllers/ScenarioController.php:165
+msgid "The scenario has been successfully updated."
+msgstr "Formuläret har nu blivit uppdaterat."
+
+#: application/controllers/ScenarioController.php:209
+msgid "The scenario has been deleted."
+msgstr "Formuläret har raderats."
+
+#: application/controllers/ScenarioController.php:211
+#: application/controllers/ScenarioController.php:438
+#: application/controllers/ScenarioController.php:555
+msgid "Server is busy, please delete the scenario later."
+msgstr "Servern kan inte behandla ditt ärende just nu. Försök radera bort formuläret senare."
+
+#: application/controllers/ScenarioController.php:297
+msgid "A new question has been created."
+msgstr "En ny fråga har skapats"
+
+#: application/controllers/ScenarioController.php:325
+msgid "Update element information"
+msgstr "Uppdatera information i inslaget"
+
+#: application/controllers/ScenarioController.php:404
+msgid "The question has been updated."
+msgstr "Frågan har uppdaterats."
+
+#: application/controllers/ScenarioController.php:435
+msgid "The question has been deleted."
+msgstr "Frågan har tagits bort."
+
+#: application/controllers/ScenarioController.php:458
+msgid "Add new"
+msgstr "Lägg till ny"
+
+#: application/controllers/ScenarioController.php:460
+msgid "Add new section"
+msgstr "Lägg till ett nytt avsnitt."
+
+#: application/controllers/ScenarioController.php:476
+msgid "A new section has been created."
+msgstr "Du har skapat ett nytt avsnitt."
+
+#: application/controllers/ScenarioController.php:521
+msgid "The section information has been successfully updated."
+msgstr "Informationen i avnittet har blivit uppdaterat."
+
+#: application/controllers/ScenarioController.php:553
+msgid "The section has been deleted."
+msgstr "Avsnittet har blivit raderat."
+
+#: application/controllers/AssessmentController.php:36
+msgid "Create new main category"
+msgstr "Skapa en ny huvudkategori."
+
+#: application/controllers/AssessmentController.php:54
+#: application/controllers/AssessmentController.php:118
+msgid "A category has been successfully created."
+msgstr "En kategori har skapats."
+
+#: application/controllers/AssessmentController.php:76
+msgid "You have not create any assessment category yet."
+msgstr "Du har än inte skapat någon bedömningskategori än."
+
+#: application/controllers/AssessmentController.php:91
+msgid "Create new category"
+msgstr "Skapa en kategori."
+
+#: application/controllers/AssessmentController.php:177
+msgid "The category has been successfully updated."
+msgstr "Kategorin har uppdaterats."
+
+#: application/controllers/AssessmentController.php:208
+msgid "The category has been deleted."
+msgstr "Kategorin har blivit raderat."
+
+#: application/controllers/AssessmentController.php:210
+msgid "Server is busy, please delete the category later."
+msgstr "Servern kan inte behandla ditt ärende, försök radera kategorin senare."
+
+#: application/controllers/ResultController.php:38
+#: application/controllers/ResultController.php:111
+msgid "Project not found."
+msgstr "Projektet finns inte."
+
+#: application/controllers/ResultController.php:92
+#: application/controllers/ResultController.php:155
+msgid "Result can not be calculated yet until 75 percent of the group have submitted."
+msgstr "Resultatet kan inte beräknas ännu. Minst 75 procent av deltagarna behöver svara innan du kan se gruppens resultat."
+
+#: application/controllers/FormController.php:80
+msgid "Your answers has been successfully saved."
+msgstr "Dina svar har sparats."
+
+#: application/controllers/FormController.php:101
+msgid "Congratulations! You have finished your assessment."
+msgstr "Bra gjort! Du är klar med formuläret."
+
+#: application/controllers/ProjectController.php:46
+msgid "You have not create any project yet."
+msgstr "Du har än inte skapat något projekt."
+
+#: application/controllers/ProjectController.php:124
+msgid "A project has been successfully createad and users have been invited."
+msgstr "Du har skapat ett projekt och bjudit in deltagare."
+
+#: application/controllers/ProjectController.php:139
+msgid "Create new project"
+msgstr "Skapa ett nytt projekt."
+
+#: application/controllers/ProjectController.php:140
+msgid "Create project"
+msgstr "Skapa ett projekt"
+
+#: application/controllers/ProjectController.php:162
+msgid "Update project"
+msgstr "Uppdatera projektinformation"
+
+#: application/controllers/ProjectController.php:302
+msgid "A project has been successfully updated."
+msgstr "Projektet har blivit uppdaterat."
+
+#: application/controllers/ProjectController.php:334
+msgid "The project has been deleted."
+msgstr "Projektet har raderats."
+
+#: application/controllers/ProjectController.php:336
+msgid "Server is busy, please delete the project later."
+msgstr "Servern kan inte behandla ditt ärende just nu. Försök radera projektet senare."
+
+#: application/controllers/UserController.php:79
+msgid "You have not create any user yet."
+msgstr "Du har än inte lagt in några användare."
+
+#: application/controllers/UserController.php:94
+msgid "Create new user"
+msgstr "Lägg till ny användare"
+
+#: application/controllers/UserController.php:95
+msgid "Create user"
+msgstr "Lägg till användare"
+
+#: application/controllers/UserController.php:100
+#: application/controllers/UserController.php:246
+msgid "User"
+msgstr "Användare"
+
+#: application/controllers/UserController.php:101
+#: application/controllers/UserController.php:247
+msgid "Administrator"
+msgstr "Administratör"
+
+#: application/controllers/UserController.php:103
+#: application/controllers/UserController.php:249
+msgid "User Type"
+msgstr "Användare"
+
+#: application/controllers/UserController.php:109
+#: application/controllers/UserController.php:255
+msgid "Access limit date"
+msgstr "Välj tidsgräns"
+
+#: application/controllers/UserController.php:115
+#: application/controllers/UserController.php:263
+msgid "Owner/Administrator of this user"
+msgstr "Ägare/Administratör till användaren"
+
+#: application/controllers/UserController.php:122
+#: application/controllers/UserController.php:270
+msgid "-- Super Administrator --"
+msgstr "-- Superadministratör --"
+
+#: application/controllers/UserController.php:138
+#: application/controllers/UserController.php:286
+msgid "This email has been registered before."
+msgstr "Denna mail-adress har redan registrerats."
+
+#: application/controllers/UserController.php:143
+#: application/controllers/UserController.php:292
+msgid "The password confirmation does not match"
+msgstr "Lösenordet matchar inte."
+
+#: application/controllers/UserController.php:184
+msgid "A new user has been successfully created."
+msgstr "En ny användare har skapats."
+
+#: application/controllers/UserController.php:193
+msgid "Server is busy to process your request. Please try again later.: "
+msgstr "Servern kan inte behandla ditt ärende just nu. Försök senare."
+
+#: application/controllers/UserController.php:349
+msgid "User profile information has been successfully updated."
+msgstr "Användareprofilen har uppdaterats."
+
+#: application/controllers/UserController.php:420
+msgid "The user has been deleted."
+msgstr "Användaren har raderats."
+
+#: application/controllers/UserController.php:422
+msgid "Server is busy, please delete the user later."
+msgstr "Servern kan inte behandla ditt ärende. Försökt radera bort användare senare."
+
+#: application/controllers/IndexController.php:66
+msgid "You are logged in."
+msgstr "Du är inloggad."
+
+#: application/controllers/IndexController.php:70
+msgid "This email has passed its access limit time. Please contact admin@subgroup.se for extension of access period."
+msgstr "Denna e-postadress har nått slutdatum. Kontakta admin@aubgroup.se för att förlänga registreringstiden."
+
+#: application/controllers/IndexController.php:73
+msgid "Invalid username or password."
+msgstr "Ogiltig användarnamn och lösenord"
+
+#: application/forms/Scenario.php:24
+#: application/forms/Scenario.php:39
+msgid "Create new scenario"
+msgstr "Skapa ett nytt formulär"
+
+#: application/forms/Scenario.php:27
+#: application/forms/Project.php:31
+#: application/forms/ScenarioSection.php:20
+msgid "Title:"
+msgstr "Titel"
+
+#: application/forms/Scenario.php:31
+#: application/forms/Project.php:35
+#: application/forms/AssessmentCategory.php:42
+msgid "Description:"
+msgstr "Beskrivning:"
+
+#: application/forms/Scenario.php:35
+msgid "-- Select scenario to copy from --"
+msgstr "--Välj formulär att kopiera--"
+
+#: application/forms/Project.php:28
+msgid "Update project information"
+msgstr "Uppdatera projektinformation"
+
+#: application/forms/Project.php:43
+msgid "Owner/Administrator of this project"
+msgstr "Ägare/Administratör för detta projekt"
+
+#: application/forms/ScenarioElement.php:42
+msgid "Create new element"
+msgstr "Lägg till nytt inslag"
+
+#: application/forms/ScenarioElement.php:45
+msgid "Question/Text:"
+msgstr "Fråga/Text"
+
+#: application/forms/ScenarioElement.php:49
+msgid "Information/Instruction:"
+msgstr "Information/Instruktion"
+
+#: application/forms/ScenarioElement.php:53
+msgid "Type:"
+msgstr "Typ:"
+
+#: application/forms/ScenarioElement.php:55
+msgid "Text"
+msgstr "Text"
+
+#: application/forms/ScenarioElement.php:56
+msgid "Text Area"
+msgstr "Textfält"
+
+#: application/forms/ScenarioElement.php:57
+msgid "Check Box"
+msgstr "Check Box"
+
+#: application/forms/ScenarioElement.php:58
+msgid "Select/Multi-options"
+msgstr "Välj/Flervalsmeny"
+
+#: application/forms/ScenarioElement.php:59
+msgid "Yes/No options"
+msgstr "Ja/Nej-alternativ"
+
+#: application/forms/ScenarioElement.php:60
+msgid "5 Values"
+msgstr "5 Värdeskala"
+
+#: application/forms/ScenarioElement.php:61
+msgid "5 Values Inverse"
+msgstr "5 Värdeskala Omvänt "
+
+#: application/forms/ScenarioElement.php:62
+msgid "6 Values (Not applicable)"
+msgstr "6 Värdeskala Ej tillämpbart"
+
+#: application/forms/ScenarioElement.php:63
+msgid "6 Values (Not know)"
+msgstr "6 Värdeskala Vet ej"
+
+#: application/forms/ScenarioElement.php:68
+msgid "Section:"
+msgstr "Avsnitt"
+
+#: application/forms/ScenarioElement.php:72
+msgid "Assessment category:"
+msgstr "Bedömningskategori:"
+
+#: application/forms/ScenarioElement.php:73
+msgid "-- Select category --"
+msgstr "--Välj kategori--"
+
+#: application/forms/ScenarioSection.php:17
+msgid "Update section information"
+msgstr "Uppdatera information i avsnittet"
+
+#: application/forms/ScenarioSection.php:24
+msgid "Description/Instruction:"
+msgstr "Beskrivning/Instruktion"
+
+#: application/forms/ScenarioSection.php:27
+msgid "Sequence:"
+msgstr "Sekvens:"
+
+#: application/forms/AssessmentCategory.php:16
+msgid "Parent Category:"
+msgstr "Förälderkategori:"
+
+#: application/forms/AssessmentCategory.php:20
+msgid "Main category"
+msgstr "Huvudkategori"
+
+#: application/forms/AssessmentCategory.php:21
+msgid "Overall category"
+msgstr "Allämkategori"
+
+#: application/forms/AssessmentCategory.php:23
+msgid "Category type:"
+msgstr "Kategorityp:"
+
+#: application/forms/AssessmentCategory.php:34
+msgid "Update category information"
+msgstr "Uppdatera kategoriinformation"
+
+#: application/forms/AssessmentCategory.php:37
+msgid "Name:"
+msgstr "Namn:"
+
+#: application/forms/User.php:17
+msgid "Update user profile information"
+msgstr "Uppdatera profilinformation"
+
+#: application/forms/User.php:20
+msgid "E-mail address:"
+msgstr "E-post adress"
+
+#: application/forms/User.php:25
+msgid "New password:"
+msgstr "Nytt Lösenord"
+
+#: application/forms/User.php:26
+msgid "Fill in the password only if you want to change your current password"
+msgstr "Fyll in ditt lösenord om du vill ändra ditt lösenordet"
+
+#: application/forms/User.php:29
+msgid "Confirm password:"
+msgstr "Bekräfta lösenordet:"
+
+#: application/forms/User.php:32
+msgid "First name:"
+msgstr "Namn:"
+
+#: application/forms/User.php:37
+msgid "Last name:"
+msgstr "Efternamn:"
+
+#: application/forms/User.php:42
+msgid "Birth date:"
+msgstr "Födelsedatum:"
+
+#: application/forms/Login.php:11
+msgid "E-mail address"
+msgstr "E-post adress"
+
+#: application/forms/Login.php:17
+msgid "Password"
+msgstr "Lösenord"
+
+#: application/forms/Login.php:21
+msgid "Sign in"
+msgstr "Logga in"
+
+#: library/SG/View/Helper/Breadcrumb.php:17
+#: library/SG/View/Helper/Breadcrumb.php:106
+msgid "Dashboard"
+msgstr "Instrumentpanel"
+
+#: library/SG/View/Helper/Breadcrumb.php:25
+#: library/SG/View/Helper/Breadcrumb.php:33
+#: library/SG/View/Helper/Breadcrumb.php:46
+#: library/SG/View/Helper/Breadcrumb.php:66
+#: library/SG/View/Helper/Breadcrumb.php:89
+msgid "Users"
+msgstr "Användare"
+
+#: library/SG/View/Helper/Breadcrumb.php:50
+msgid "Edit profile"
+msgstr "Redigera profil"
+
+#: library/SG/View/Helper/Breadcrumb.php:57
+msgid "Profile information"
+msgstr "Profilinformation"
+
+#: library/SG/View/Helper/Breadcrumb.php:70
+#: library/SG/View/Helper/Breadcrumb.php:93
+msgid "Detail information"
+msgstr "Detaljerad information"
+
+#: library/SG/View/Helper/Breadcrumb.php:78
+#: library/SG/View/Helper/Breadcrumb.php:139
+#: application/views/scripts/user/result.phtml:4
+msgid "Results"
+msgstr "Resultat "
+
+#: library/SG/View/Helper/Breadcrumb.php:97
+msgid "Form detail"
+msgstr "Formulär-detaljer"
+
+#: library/SG/View/Helper/Breadcrumb.php:123
+#: library/SG/View/Helper/Breadcrumb.php:156
+#: library/SG/View/Helper/Breadcrumb.php:164
+#: library/SG/View/Helper/Breadcrumb.php:176
+#: library/SG/View/Helper/Breadcrumb.php:188
+msgid "Projects"
+msgstr "Projekter"
+
+#: library/SG/View/Helper/Breadcrumb.php:127
+#: library/SG/View/Helper/Breadcrumb.php:192
+msgid "Project detail"
+msgstr "Projekt-detaljer"
+
+#: library/SG/View/Helper/Breadcrumb.php:131
+#: library/SG/View/Helper/Breadcrumb.php:143
+msgid "Result detail"
+msgstr "Resultat-detaljer"
+
+#: library/SG/View/Helper/Breadcrumb.php:180
+#: library/SG/View/Helper/Breadcrumb.php:340
+msgid "Edit project"
+msgstr "Redigera projektinformation"
+
+#: library/SG/View/Helper/Breadcrumb.php:204
+#: library/SG/View/Helper/Breadcrumb.php:212
+#: library/SG/View/Helper/Breadcrumb.php:224
+#: library/SG/View/Helper/Breadcrumb.php:236
+#: library/SG/View/Helper/Breadcrumb.php:248
+#: library/SG/View/Helper/Breadcrumb.php:264
+#: library/SG/View/Helper/Breadcrumb.php:280
+#: library/SG/View/Helper/Breadcrumb.php:296
+msgid "Scenarios"
+msgstr "Formulär"
+
+#: library/SG/View/Helper/Breadcrumb.php:216
+msgid "Create scenario"
+msgstr "Skapa ett nytt formulär"
+
+#: library/SG/View/Helper/Breadcrumb.php:228
+#: library/SG/View/Helper/Breadcrumb.php:252
+#: library/SG/View/Helper/Breadcrumb.php:268
+#: library/SG/View/Helper/Breadcrumb.php:284
+#: library/SG/View/Helper/Breadcrumb.php:300
+msgid "Scenario detail"
+msgstr "Detaljer i formuläret "
+
+#: library/SG/View/Helper/Breadcrumb.php:240
+msgid "Edit scenario information"
+msgstr "Redigera informationen i formuläret."
+
+#: library/SG/View/Helper/Breadcrumb.php:256
+msgid "Create question"
+msgstr "Lägg till fråga"
+
+#: library/SG/View/Helper/Breadcrumb.php:272
+#: library/SG/View/Helper/Breadcrumb.php:304
+msgid "Edit question"
+msgstr "Redigera fråga"
+
+#: library/SG/View/Helper/Breadcrumb.php:288
+msgid "Create section"
+msgstr "Lägg till sektion"
+
+#: library/SG/View/Helper/Breadcrumb.php:316
+#: library/SG/View/Helper/Breadcrumb.php:324
+#: library/SG/View/Helper/Breadcrumb.php:336
+msgid "Assessments"
+msgstr "Bedömningskategorier"
+
+#: application/views/scripts/project/detail.phtml:5
+msgid "details and progress:"
+msgstr "Detaljer och framsteg:"
+
+#: application/views/scripts/project/detail.phtml:20
+msgid "Finished"
+msgstr "Klar"
+
+#: application/views/scripts/project/detail.phtml:26
+msgid "Due:"
+msgstr "Förfallodatum:"
+
+#: application/views/scripts/project/detail.phtml:43
+msgid "View/Edit"
+msgstr "Visa/Redigera"
+
+#: application/views/scripts/project/index.phtml:14
+msgid "Title"
+msgstr "Titel"
+
+#: application/views/scripts/project/index.phtml:15
+msgid "Description"
+msgstr "Beskrivning"
+
+#: application/views/scripts/project/index.phtml:16
+msgid "# of users"
+msgstr "Antal användare"
+
+#: application/views/scripts/project/index.phtml:17
+msgid "Action"
+msgstr "Aktivitet"
+
+#: application/views/scripts/project/index.phtml:40
+msgid "Are you sure you want to delete this object?"
+msgstr "Är du säker på att du vill radera detta objekt?"
+
+#: application/views/scripts/user/dashboard.phtml:10
+msgid "users"
+msgstr "Användare"
+
+#: application/views/scripts/user/dashboard.phtml:11
+msgid "Create user first and assign them to a project in a group. Manage and view user's progress of each assessment."
+msgstr "Börja med att skapa en användare. Koppla sedan användaren till ett projekt.  Du kan senare hantera och följ upp användarens framsteg i samtliga projekt. "
+
+#: application/views/scripts/user/dashboard.phtml:12
+msgid "Go to users"
+msgstr "Gå till användare"
+
+#: application/views/scripts/user/dashboard.phtml:17
+msgid "Project"
+msgstr "Projekt"
+
+#: application/views/scripts/user/dashboard.phtml:17
+msgid "projects"
+msgstr "Projekt"
+
+#: application/views/scripts/user/dashboard.phtml:18
+msgid "Start a project to begin assemble a group and send an assessment through email invitation. Manage on-going project and delete a project if necessary."
+msgstr "Starta ett projekt så att du också ska kunna skapa en grupp. Skicka sedan inbjudningar till deltagarna i gruppen via mail. Du kan senare hantera pågående projekt och radera projekt vid behov."
+
+#: application/views/scripts/user/dashboard.phtml:19
+msgid "Go to projects"
+msgstr "Gå till projekt"
+
+#: application/views/scripts/user/dashboard.phtml:25
+msgid "Scenario"
+msgstr "Formulär"
+
+#: application/views/scripts/user/dashboard.phtml:25
+msgid "scenarios"
+msgstr "Formulär"
+
+#: application/views/scripts/user/dashboard.phtml:26
+msgid "Create scenario assessment which will be send to the user within a project and calculated based on its category."
+msgstr "Skapa ett formulär. Det kommer att skickas till deltagarna i ett projekt. Formulärets resultat kommer att beräknas efter de kategorierna det består av. "
+
+#: application/views/scripts/user/dashboard.phtml:27
+msgid "Go to scenarios"
+msgstr "Gå till formulär"
+
+#: application/views/scripts/user/dashboard.phtml:32
+msgid "Assessment category"
+msgstr "Bedömningskategori"
+
+#: application/views/scripts/user/dashboard.phtml:32
+msgid "categories"
+msgstr "Kategorier"
+
+#: application/views/scripts/user/dashboard.phtml:33
+msgid "Create assessment category which will be matched with the answers given by the user, transformed and calculated into charts based on its main category."
+msgstr "Skapa bedömningskategorier som ska matcha undersökningsdeltagarnas svar. Svaret på kategorierna kommer att beräknas och omvandlas till diagram som ger en bild av huvudkategorins status. "
+
+#: application/views/scripts/user/dashboard.phtml:34
+msgid "Go to assessment categories"
+msgstr "Gå till bedömningskategorier"
+
+#: application/views/scripts/user/detail.phtml:5
+msgid "This is your dasboard. Here you can see the list of your latest progress."
+msgstr "Det här är din instrumentpanel. Här kan du följa dina framsteg."
+
+#: application/views/scripts/user/index.phtml:6
+msgid "Add new user"
+msgstr "Lägg till ny användare"
+
+#: application/views/scripts/user/index.phtml:13
+msgid "Username"
+msgstr "Användarnamn"
+
+#: application/views/scripts/user/index.phtml:14
+msgid "First Name"
+msgstr "Namn"
+
+#: application/views/scripts/user/index.phtml:15
+msgid "Last Name"
+msgstr "Efternamn"
+
+#: application/views/scripts/user/index.phtml:16
+#: application/views/scripts/scenario/detail.phtml:62
+msgid "Type"
+msgstr "Typ"
+
+#: application/views/scripts/user/index.phtml:17
+msgid "# of projects"
+msgstr "Antal projekt"
+
+#: application/views/scripts/scenario/detail.phtml:13
+msgid "Sections"
+msgstr "Avsnitt"
+
+#: application/views/scripts/scenario/detail.phtml:14
+msgid "Questions"
+msgstr "Frågor"
+
+#: application/views/scripts/scenario/detail.phtml:27
+msgid "Information"
+msgstr "Information"
+
+#: application/views/scripts/scenario/detail.phtml:28
+#: application/views/scripts/scenario/index.phtml:15
+msgid "# of elements"
+msgstr "Antal inslag"
+
+#: application/views/scripts/scenario/detail.phtml:53
+msgid "Add new question"
+msgstr "Lägg till ny fråga"
+
+#: application/views/scripts/scenario/detail.phtml:61
+msgid "Section"
+msgstr "Avsnitt"
+
+#: application/views/scripts/scenario/index.phtml:14
+msgid "# of sections"
+msgstr "Antal avsnitt"
+
+#: application/views/scripts/menu/index.phtml:3
+msgid "Welcome,"
+msgstr "Välkommen"
+
+#: application/views/scripts/menu/index.phtml:13
+msgid "Notifications"
+msgstr "Notifieringar "
+
+#: application/views/scripts/menu/index.phtml:19
+msgid "Knowledge center"
+msgstr "Kunskapscenter"
+
+#: application/views/scripts/menu/index.phtml:21
+msgid "Administration"
+msgstr "Administration"
+
+#: application/views/scripts/menu/index.phtml:38
+msgid "Sign out"
+msgstr "Logga ut"
+
+#: application/views/scripts/_include/assessment-sub-categories.phtml:47
+msgid "Leader"
+msgstr "Ledare"
+
+#: application/views/scripts/_include/assessment-sub-categories.phtml:47
+msgid "Members"
+msgstr "Medlemmar"
+
+#: application/views/scripts/_include/assessment-sub-categories.phtml:69
+msgid "Detailed answers distribution"
+msgstr "Fördelning av detaljerat svar"
+
+#: application/views/scripts/_include/assessment-sub-categories.phtml:77
+msgid "Answers distribution"
+msgstr "Fördelning av svar"
+
+#: application/views/scripts/_include/assessment-sub-categories.phtml:96
+msgid "Value of"
+msgstr "Värde av"
+
+#: application/views/scripts/form/edit.phtml:9
+#: application/views/scripts/form/edit.phtml:25
+msgid "INFORMATION"
+msgstr "information"
+
+#: application/views/scripts/assessment/index.phtml:7
+msgid "Create new assessment category"
+msgstr "Skapa en ny bedömningskategori"
+
+#: application/views/scripts/assessment/index.phtml:16
+msgid "Add tab"
+msgstr "Lägg till flik"
+
+#: application/views/scripts/assessment/index.phtml:25
+msgid "Name"
+msgstr "Namn"
+
+#: application/views/scripts/assessment/index.phtml:27
+msgid "Parent Category"
+msgstr "Förälderkategori "
+
+#: application/views/scripts/index/index.phtml:5
+msgid "Subgroup Webportal"
+msgstr "Subgroups webbportal"
+
+#: application/views/scripts/index/index.phtml:73
+msgid "Forget password?"
+msgstr "Glömt lösenordet?"
+
+#: application/views/scripts/result/detail.phtml:4
+msgid "These are the result details of your personal/team assessment."
+msgstr "Detaljerad bild av resultatet för din personliga kartläggning/gruppkartläggning "
+
+#: application/views/scripts/result/detail.phtml:64
+msgid "Your group"
+msgstr "Din grupp"
+
+#: application/views/scripts/result/detail.phtml:154
+msgid "Proportion of"
+msgstr "Del av "
+
+#: application/views/scripts/result/detail.phtml:171
+msgid "Categories"
+msgstr "Kategorier"
+
+#: application/views/scripts/result/detail.phtml:182
+msgid "Sub categories"
+msgstr "Subkategorier"
+
+#: application/views/scripts/result/index.phtml:16
+#: application/views/scripts/result/index.phtml:86
+msgid "Overview assessment"
+msgstr "Översikt av kartläggningen"
+
+#: application/views/scripts/result/index.phtml:23
+msgid "Group index"
+msgstr "Gruppindex"
+
+#: application/views/scripts/result/index.phtml:135
+#: application/views/scripts/_form/project.phtml:78
+msgid "Team Leader"
+msgstr "Ledare för gruppen"
+
+#: application/views/scripts/result/index.phtml:139
+msgid "Team Members"
+msgstr "Medlemmar i gruppen"
+
+#: application/views/scripts/result/index.phtml:146
+msgid "View detail"
+msgstr "Detaljerad vy"
+
+#: application/views/scripts/_form/project.phtml:10
+msgid "Users in the project:"
+msgstr "Projektdeltagare:"
+
+#: application/views/scripts/_form/project.phtml:64
+msgid "+ Add user to the project"
+msgstr "+ Lägg till deltagare i projektet"
+
+#: application/views/scripts/_form/project.phtml:69
+msgid "Select user to add to the project"
+msgstr "Välj deltagare som du vill lägga till i projektet"
+
+#: application/views/scripts/_form/project.phtml:74
+msgid "Email:"
+msgstr "E-postadress"
+
+#: application/views/scripts/_form/project.phtml:75
+msgid "Start typing user's email here.."
+msgstr "Börja med att mata in deltagarens e-postadress här..."
+
+#: application/views/scripts/_form/project.phtml:76
+msgid "Role:"
+msgstr "Roll:"
+
+#: application/views/scripts/_form/project.phtml:79
+msgid "Team Member"
+msgstr "Medlem i gruppen"
+
+#: application/views/scripts/_form/project.phtml:81
+msgid "Scenario:"
+msgstr "Formulär:"
+
+#: application/views/scripts/_form/project.phtml:88
+msgid "Add"
+msgstr "Lägg till"
+
+#: application/views/scripts/_form/project.phtml:92
+msgid "Close"
+msgstr "Stäng "
+
+#: application/views/scripts/_form/project.phtml:93
+msgid "Add to project"
+msgstr "Lägg till projektet"
+
+#~ msgid "Standard"
+#~ msgstr "Standard"

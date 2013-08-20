@@ -1,0 +1,51 @@
+<div class="row">
+    <div class="span9">
+        <?php echo $this->breadcrumb($this->params); ?>
+        <?php if($this->identity->role == Entities\User::TYPE_USER) { ?>
+        <p><?php echo $this->translate("This is your dasboard. Here you can see the list of your latest progress."); ?></p>
+        <?php } else { ?>
+        <p class="well well-small"><b><?php echo $this->user->getFirstName() . ' ' . $this->user->getLastName() . ' (' . $this->user->getEmail() . ')'; ?></b> <?php echo $this->translate('details and progress:'); ?></p>
+        <?php } ?>
+        <?php if (sizeof($this->user->getInvitations()) > 0) { ?>
+        <ul style="list-style: none; margin-left: 0">
+        <?php foreach($this->user->getInvitations() as $invitation) { ?>
+        <?php
+            $progress = $this->em->getRepository('Entities\Invitation')
+                ->getPercentageAnsweredRequiredElementByInvitation($invitation);
+            $progressText = ($progress == 0) ? '<span style="color:#666">0%</span>' : $progress . '%';
+            $startDateString = $invitation->getInvitationDate()->format('Y-m-d H:i');
+
+            $dueDateTime = strtotime($startDateString . ' +14 day');
+
+            if ($invitation->getStatus() == Entities\Invitation::STATUS_FINISHED) {
+                $dueDate = $this->translate("Finished");
+                $dueLabel = "label-success";
+                $dueIcon = "icon-ok";
+                $progress = 100;
+                $progressText = '100%';
+            } else {
+                $dueDate = $this->translate("Due:") . ' ' . date('Y-m-d H:i', $dueDateTime);
+                $dueIcon = "icon-time";
+                if(time() > $dueDateTime) {
+                    $dueLabel = "label-important";
+                } else if (time() > $dueDateTime - 86400) {
+                    $dueLabel = "label-warning";
+                } else {
+                    $dueLabel = '';
+                }
+            }
+        ?>
+            <li>
+                <div class="well well-small">
+                    <p><i class="icon-file"></i> <b><?php echo $invitation->getProject()->getTitle() . ' - ' . $invitation->getScenario()->getTitle(); ?></b><span class="label <?php echo $dueLabel; ?> pull-right"><i class="<?php echo $dueIcon; ?> icon-white"></i> <?php echo $dueDate; ?></span></p>
+                    <div class="progress progress-success progress-striped">
+                        <div class="bar" style="width: <?php echo ($progress == 0) ? 0.5 : $progress; ?>%;"><?php echo $progressText;?></div>
+                    </div>
+                    <p><a href="<?php echo $this->RouteUrl('cloud-form', array('id' => $invitation->getId())); ?>" class="btn btn-primary"><i class="icon-edit icon-white"></i> <?php echo $this->translate("View/Edit"); ?> </a></p>
+                </div>
+            </li>
+        <?php } ?>
+        </ul>
+        <?php } ?>
+    </div>
+</div>

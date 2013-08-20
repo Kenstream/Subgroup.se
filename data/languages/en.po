@@ -1,0 +1,766 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Subgroup CloudForm\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-04-29 17:48+0100\n"
+"PO-Revision-Date: 2013-04-29 17:48+0100\n"
+"Last-Translator: Agustinus P <aw@openratio.com>\n"
+"Language-Team: Subgroup IT development <agustinus.widodo@gmail.com>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;translate\n"
+"X-Poedit-Basepath: /home/prasoei/Sites/cloud.subgroup.se/\n"
+"X-Poedit-Language: English\n"
+"X-Poedit-Country: UNITED KINGDOM\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-SearchPath-0: application\n"
+
+#: application/controllers/ScenarioController.php:41
+msgid "You have not create any scenario yet."
+msgstr ""
+
+#: application/controllers/ScenarioController.php:117
+msgid "A scenario has been created, you can add sections and questions to the scenario."
+msgstr ""
+
+#: application/controllers/ScenarioController.php:123
+#: application/controllers/ScenarioController.php:170
+#: application/controllers/ScenarioController.php:303
+#: application/controllers/ScenarioController.php:409
+#: application/controllers/ScenarioController.php:482
+#: application/controllers/ScenarioController.php:526
+#: application/controllers/AssessmentController.php:61
+#: application/controllers/AssessmentController.php:126
+#: application/controllers/AssessmentController.php:183
+#: application/controllers/FormController.php:85
+#: application/controllers/FormController.php:106
+#: application/controllers/ProjectController.php:133
+#: application/controllers/ProjectController.php:309
+#: application/controllers/UserController.php:356
+msgid "Server is busy to process your request. Please try again later."
+msgstr ""
+
+#: application/controllers/ScenarioController.php:147
+#: application/controllers/ScenarioController.php:326
+msgid "Save"
+msgstr ""
+
+#: application/controllers/ScenarioController.php:150
+msgid "Update scenario information"
+msgstr ""
+
+#: application/controllers/ScenarioController.php:165
+msgid "The scenario has been successfully updated."
+msgstr ""
+
+#: application/controllers/ScenarioController.php:209
+msgid "The scenario has been deleted."
+msgstr ""
+
+#: application/controllers/ScenarioController.php:211
+#: application/controllers/ScenarioController.php:438
+#: application/controllers/ScenarioController.php:555
+msgid "Server is busy, please delete the scenario later."
+msgstr ""
+
+#: application/controllers/ScenarioController.php:297
+msgid "A new question has been created."
+msgstr ""
+
+#: application/controllers/ScenarioController.php:325
+msgid "Update element information"
+msgstr ""
+
+#: application/controllers/ScenarioController.php:404
+msgid "The question has been updated."
+msgstr ""
+
+#: application/controllers/ScenarioController.php:435
+msgid "The question has been deleted."
+msgstr ""
+
+#: application/controllers/ScenarioController.php:458
+msgid "Add new"
+msgstr ""
+
+#: application/controllers/ScenarioController.php:460
+msgid "Add new section"
+msgstr ""
+
+#: application/controllers/ScenarioController.php:476
+msgid "A new section has been created."
+msgstr ""
+
+#: application/controllers/ScenarioController.php:521
+msgid "The section information has been successfully updated."
+msgstr ""
+
+#: application/controllers/ScenarioController.php:553
+msgid "The section has been deleted."
+msgstr ""
+
+#: application/controllers/AssessmentController.php:36
+msgid "Create new main category"
+msgstr ""
+
+#: application/controllers/AssessmentController.php:54
+#: application/controllers/AssessmentController.php:118
+msgid "A category has been successfully created."
+msgstr ""
+
+#: application/controllers/AssessmentController.php:76
+msgid "You have not create any assessment category yet."
+msgstr ""
+
+#: application/controllers/AssessmentController.php:91
+msgid "Create new category"
+msgstr ""
+
+#: application/controllers/AssessmentController.php:177
+msgid "The category has been successfully updated."
+msgstr ""
+
+#: application/controllers/AssessmentController.php:208
+msgid "The category has been deleted."
+msgstr ""
+
+#: application/controllers/AssessmentController.php:210
+msgid "Server is busy, please delete the category later."
+msgstr ""
+
+#: application/controllers/ResultController.php:38
+#: application/controllers/ResultController.php:111
+msgid "Project not found."
+msgstr ""
+
+#: application/controllers/ResultController.php:92
+#: application/controllers/ResultController.php:155
+msgid "Result can not be calculated yet until 75 percent of the group have submitted."
+msgstr ""
+
+#: application/controllers/FormController.php:80
+msgid "Your answers has been successfully saved."
+msgstr ""
+
+#: application/controllers/FormController.php:101
+msgid "Congratulations! You have finished your assessment."
+msgstr ""
+
+#: application/controllers/ProjectController.php:46
+msgid "You have not create any project yet."
+msgstr ""
+
+#: application/controllers/ProjectController.php:124
+msgid "A project has been successfully createad and users have been invited."
+msgstr ""
+
+#: application/controllers/ProjectController.php:139
+msgid "Create new project"
+msgstr ""
+
+#: application/controllers/ProjectController.php:140
+msgid "Create project"
+msgstr ""
+
+#: application/controllers/ProjectController.php:162
+msgid "Update project"
+msgstr ""
+
+#: application/controllers/ProjectController.php:302
+msgid "A project has been successfully updated."
+msgstr ""
+
+#: application/controllers/ProjectController.php:334
+msgid "The project has been deleted."
+msgstr ""
+
+#: application/controllers/ProjectController.php:336
+msgid "Server is busy, please delete the project later."
+msgstr ""
+
+#: application/controllers/UserController.php:79
+msgid "You have not create any user yet."
+msgstr ""
+
+#: application/controllers/UserController.php:94
+msgid "Create new user"
+msgstr ""
+
+#: application/controllers/UserController.php:95
+msgid "Create user"
+msgstr ""
+
+#: application/controllers/UserController.php:100
+#: application/controllers/UserController.php:246
+msgid "User"
+msgstr ""
+
+#: application/controllers/UserController.php:101
+#: application/controllers/UserController.php:247
+msgid "Administrator"
+msgstr ""
+
+#: application/controllers/UserController.php:103
+#: application/controllers/UserController.php:249
+msgid "User Type"
+msgstr ""
+
+#: application/controllers/UserController.php:109
+#: application/controllers/UserController.php:255
+msgid "Access limit date"
+msgstr ""
+
+#: application/controllers/UserController.php:115
+#: application/controllers/UserController.php:263
+msgid "Owner/Administrator of this user"
+msgstr ""
+
+#: application/controllers/UserController.php:122
+#: application/controllers/UserController.php:270
+msgid "-- Super Administrator --"
+msgstr ""
+
+#: application/controllers/UserController.php:138
+#: application/controllers/UserController.php:286
+msgid "This email has been registered before."
+msgstr ""
+
+#: application/controllers/UserController.php:143
+#: application/controllers/UserController.php:292
+msgid "The password confirmation does not match"
+msgstr ""
+
+#: application/controllers/UserController.php:184
+msgid "A new user has been successfully created."
+msgstr ""
+
+#: application/controllers/UserController.php:193
+msgid "Server is busy to process your request. Please try again later.: "
+msgstr ""
+
+#: application/controllers/UserController.php:349
+msgid "User profile information has been successfully updated."
+msgstr ""
+
+#: application/controllers/UserController.php:420
+msgid "The user has been deleted."
+msgstr ""
+
+#: application/controllers/UserController.php:422
+msgid "Server is busy, please delete the user later."
+msgstr ""
+
+#: application/controllers/IndexController.php:66
+msgid "You are logged in."
+msgstr ""
+
+#: application/controllers/IndexController.php:70
+msgid "This email has passed its access limit time. Please contact admin@subgroup.se for extension of access period."
+msgstr ""
+
+#: application/controllers/IndexController.php:73
+msgid "Invalid username or password."
+msgstr ""
+
+#: application/forms/Scenario.php:24
+#: application/forms/Scenario.php:39
+msgid "Create new scenario"
+msgstr ""
+
+#: application/forms/Scenario.php:27
+#: application/forms/Project.php:31
+#: application/forms/ScenarioSection.php:20
+msgid "Title:"
+msgstr ""
+
+#: application/forms/Scenario.php:31
+#: application/forms/Project.php:35
+#: application/forms/AssessmentCategory.php:42
+msgid "Description:"
+msgstr ""
+
+#: application/forms/Scenario.php:35
+msgid "-- Select scenario to copy from --"
+msgstr ""
+
+#: application/forms/Project.php:28
+msgid "Update project information"
+msgstr ""
+
+#: application/forms/Project.php:43
+msgid "Owner/Administrator of this project"
+msgstr ""
+
+#: application/forms/ScenarioElement.php:42
+msgid "Create new element"
+msgstr ""
+
+#: application/forms/ScenarioElement.php:45
+msgid "Question/Text:"
+msgstr ""
+
+#: application/forms/ScenarioElement.php:49
+msgid "Information/Instruction:"
+msgstr ""
+
+#: application/forms/ScenarioElement.php:53
+msgid "Type:"
+msgstr ""
+
+#: application/forms/ScenarioElement.php:55
+msgid "Text"
+msgstr ""
+
+#: application/forms/ScenarioElement.php:56
+msgid "Text Area"
+msgstr ""
+
+#: application/forms/ScenarioElement.php:57
+msgid "Check Box"
+msgstr ""
+
+#: application/forms/ScenarioElement.php:58
+msgid "Select/Multi-options"
+msgstr ""
+
+#: application/forms/ScenarioElement.php:59
+msgid "Yes/No options"
+msgstr ""
+
+#: application/forms/ScenarioElement.php:60
+msgid "5 Values"
+msgstr ""
+
+#: application/forms/ScenarioElement.php:61
+msgid "5 Values Inverse"
+msgstr ""
+
+#: application/forms/ScenarioElement.php:62
+msgid "6 Values (Not applicable)"
+msgstr ""
+
+#: application/forms/ScenarioElement.php:63
+msgid "6 Values (Not know)"
+msgstr ""
+
+#: application/forms/ScenarioElement.php:68
+msgid "Section:"
+msgstr ""
+
+#: application/forms/ScenarioElement.php:72
+msgid "Assessment category:"
+msgstr ""
+
+#: application/forms/ScenarioElement.php:73
+msgid "-- Select category --"
+msgstr ""
+
+#: application/forms/ScenarioSection.php:17
+msgid "Update section information"
+msgstr ""
+
+#: application/forms/ScenarioSection.php:24
+msgid "Description/Instruction:"
+msgstr ""
+
+#: application/forms/ScenarioSection.php:27
+msgid "Sequence:"
+msgstr ""
+
+#: application/forms/AssessmentCategory.php:16
+msgid "Parent Category:"
+msgstr ""
+
+#: application/forms/AssessmentCategory.php:20
+msgid "Main category"
+msgstr ""
+
+#: application/forms/AssessmentCategory.php:21
+msgid "Overall category"
+msgstr ""
+
+#: application/forms/AssessmentCategory.php:23
+msgid "Category type:"
+msgstr ""
+
+#: application/forms/AssessmentCategory.php:34
+msgid "Update category information"
+msgstr ""
+
+#: application/forms/AssessmentCategory.php:37
+msgid "Name:"
+msgstr ""
+
+#: application/forms/User.php:17
+msgid "Update user profile information"
+msgstr ""
+
+#: application/forms/User.php:20
+msgid "E-mail address:"
+msgstr ""
+
+#: application/forms/User.php:25
+msgid "New password:"
+msgstr ""
+
+#: application/forms/User.php:26
+msgid "Fill in the password only if you want to change your current password"
+msgstr ""
+
+#: application/forms/User.php:29
+msgid "Confirm password:"
+msgstr ""
+
+#: application/forms/User.php:32
+msgid "First name:"
+msgstr ""
+
+#: application/forms/User.php:37
+msgid "Last name:"
+msgstr ""
+
+#: application/forms/User.php:42
+msgid "Birth date:"
+msgstr ""
+
+#: application/forms/Login.php:11
+msgid "E-mail address"
+msgstr ""
+
+#: application/forms/Login.php:17
+msgid "Password"
+msgstr ""
+
+#: application/forms/Login.php:21
+msgid "Sign in"
+msgstr ""
+
+#: application/views/scripts/project/detail.phtml:5
+msgid "details and progress:"
+msgstr ""
+
+#: application/views/scripts/project/detail.phtml:20
+msgid "Finished"
+msgstr ""
+
+#: application/views/scripts/project/detail.phtml:26
+msgid "Due:"
+msgstr ""
+
+#: application/views/scripts/project/detail.phtml:43
+msgid "View/Edit"
+msgstr ""
+
+#: application/views/scripts/project/index.phtml:14
+msgid "Title"
+msgstr ""
+
+#: application/views/scripts/project/index.phtml:15
+msgid "Description"
+msgstr ""
+
+#: application/views/scripts/project/index.phtml:16
+msgid "# of users"
+msgstr ""
+
+#: application/views/scripts/project/index.phtml:17
+msgid "Action"
+msgstr ""
+
+#: application/views/scripts/project/index.phtml:40
+msgid "Are you sure you want to delete this object?"
+msgstr ""
+
+#: application/views/scripts/user/result.phtml:4
+#: application/views/scripts/menu/index.phtml:9
+msgid "Results"
+msgstr ""
+
+#: application/views/scripts/user/dashboard.phtml:10
+msgid "users"
+msgstr ""
+
+#: application/views/scripts/user/dashboard.phtml:11
+msgid "Create user first and assign them to a project in a group. Manage and view user's progress of each assessment."
+msgstr ""
+
+#: application/views/scripts/user/dashboard.phtml:12
+msgid "Go to users"
+msgstr ""
+
+#: application/views/scripts/user/dashboard.phtml:17
+#: application/views/scripts/menu/index.phtml:26
+msgid "Project"
+msgstr ""
+
+#: application/views/scripts/user/dashboard.phtml:17
+msgid "projects"
+msgstr ""
+
+#: application/views/scripts/user/dashboard.phtml:18
+msgid "Start a project to begin assemble a group and send an assessment through email invitation. Manage on-going project and delete a project if necessary."
+msgstr ""
+
+#: application/views/scripts/user/dashboard.phtml:19
+msgid "Go to projects"
+msgstr ""
+
+#: application/views/scripts/user/dashboard.phtml:25
+#: application/views/scripts/menu/index.phtml:30
+msgid "Scenario"
+msgstr ""
+
+#: application/views/scripts/user/dashboard.phtml:25
+msgid "scenarios"
+msgstr ""
+
+#: application/views/scripts/user/dashboard.phtml:26
+msgid "Create scenario assessment which will be send to the user within a project and calculated based on its category."
+msgstr ""
+
+#: application/views/scripts/user/dashboard.phtml:27
+msgid "Go to scenarios"
+msgstr ""
+
+#: application/views/scripts/user/dashboard.phtml:32
+#: application/views/scripts/menu/index.phtml:33
+msgid "Assessment category"
+msgstr ""
+
+#: application/views/scripts/user/dashboard.phtml:32
+msgid "categories"
+msgstr ""
+
+#: application/views/scripts/user/dashboard.phtml:33
+msgid "Create assessment category which will be matched with the answers given by the user, transformed and calculated into charts based on its main category."
+msgstr ""
+
+#: application/views/scripts/user/dashboard.phtml:34
+msgid "Go to assessment categories"
+msgstr ""
+
+#: application/views/scripts/user/detail.phtml:5
+msgid "This is your dasboard. Here you can see the list of your latest progress."
+msgstr ""
+
+#: application/views/scripts/user/index.phtml:6
+msgid "Add new user"
+msgstr ""
+
+#: application/views/scripts/user/index.phtml:13
+msgid "Username"
+msgstr ""
+
+#: application/views/scripts/user/index.phtml:14
+msgid "First Name"
+msgstr ""
+
+#: application/views/scripts/user/index.phtml:15
+msgid "Last Name"
+msgstr ""
+
+#: application/views/scripts/user/index.phtml:16
+#: application/views/scripts/scenario/detail.phtml:62
+msgid "Type"
+msgstr ""
+
+#: application/views/scripts/user/index.phtml:17
+msgid "# of projects"
+msgstr ""
+
+#: application/views/scripts/scenario/detail.phtml:13
+msgid "Sections"
+msgstr ""
+
+#: application/views/scripts/scenario/detail.phtml:14
+msgid "Questions"
+msgstr ""
+
+#: application/views/scripts/scenario/detail.phtml:27
+msgid "Information"
+msgstr ""
+
+#: application/views/scripts/scenario/detail.phtml:28
+#: application/views/scripts/scenario/index.phtml:15
+msgid "# of elements"
+msgstr ""
+
+#: application/views/scripts/scenario/detail.phtml:53
+msgid "Add new question"
+msgstr ""
+
+#: application/views/scripts/scenario/detail.phtml:61
+msgid "Section"
+msgstr ""
+
+#: application/views/scripts/scenario/index.phtml:14
+msgid "# of sections"
+msgstr ""
+
+#: application/views/scripts/menu/index.phtml:3
+msgid "Welcome,"
+msgstr ""
+
+#: application/views/scripts/menu/index.phtml:5
+msgid "Dashboard"
+msgstr ""
+
+#: application/views/scripts/menu/index.phtml:13
+msgid "Notifications"
+msgstr ""
+
+#: application/views/scripts/menu/index.phtml:17
+msgid "Profile information"
+msgstr ""
+
+#: application/views/scripts/menu/index.phtml:19
+msgid "Knowledge center"
+msgstr ""
+
+#: application/views/scripts/menu/index.phtml:21
+msgid "Administration"
+msgstr ""
+
+#: application/views/scripts/menu/index.phtml:38
+msgid "Sign out"
+msgstr ""
+
+#: application/views/scripts/_include/assessment-sub-categories.phtml:18
+#: application/views/scripts/_include/assessment-sub-categories.phtml:49
+msgid "Leader"
+msgstr ""
+
+#: application/views/scripts/_include/assessment-sub-categories.phtml:18
+#: application/views/scripts/_include/assessment-sub-categories.phtml:49
+msgid "Members"
+msgstr ""
+
+#: application/views/scripts/_include/assessment-sub-categories.phtml:71
+msgid "Detailed answers distribution"
+msgstr ""
+
+#: application/views/scripts/_include/assessment-sub-categories.phtml:79
+msgid "Answers distribution"
+msgstr ""
+
+#: application/views/scripts/_include/assessment-sub-categories.phtml:98
+msgid "Value of"
+msgstr ""
+
+#: application/views/scripts/form/edit.phtml:9
+#: application/views/scripts/form/edit.phtml:25
+msgid "INFORMATION"
+msgstr ""
+
+#: application/views/scripts/assessment/index.phtml:7
+msgid "Create new assessment category"
+msgstr ""
+
+#: application/views/scripts/assessment/index.phtml:16
+msgid "Add tab"
+msgstr ""
+
+#: application/views/scripts/assessment/index.phtml:25
+msgid "Name"
+msgstr ""
+
+#: application/views/scripts/assessment/index.phtml:27
+msgid "Parent Category"
+msgstr ""
+
+#: application/views/scripts/index/index.phtml:5
+msgid "Subgroup Webportal"
+msgstr ""
+
+#: application/views/scripts/index/index.phtml:73
+msgid "Forget password?"
+msgstr ""
+
+#: application/views/scripts/result/detail.phtml:4
+msgid "These are the result details of your personal/team assessment."
+msgstr ""
+
+#: application/views/scripts/result/detail.phtml:64
+msgid "Your group"
+msgstr ""
+
+#: application/views/scripts/result/detail.phtml:154
+msgid "Proportion of"
+msgstr ""
+
+#: application/views/scripts/result/detail.phtml:171
+msgid "Categories"
+msgstr ""
+
+#: application/views/scripts/result/detail.phtml:182
+msgid "Sub categories"
+msgstr ""
+
+#: application/views/scripts/result/index.phtml:16
+#: application/views/scripts/result/index.phtml:86
+msgid "Overview assessment"
+msgstr ""
+
+#: application/views/scripts/result/index.phtml:23
+msgid "Group index"
+msgstr ""
+
+#: application/views/scripts/result/index.phtml:135
+#: application/views/scripts/_form/project.phtml:78
+msgid "Team Leader"
+msgstr ""
+
+#: application/views/scripts/result/index.phtml:139
+msgid "Team Members"
+msgstr ""
+
+#: application/views/scripts/result/index.phtml:146
+msgid "View detail"
+msgstr ""
+
+#: application/views/scripts/_form/project.phtml:10
+msgid "Users in the project:"
+msgstr ""
+
+#: application/views/scripts/_form/project.phtml:64
+msgid "+ Add user to the project"
+msgstr ""
+
+#: application/views/scripts/_form/project.phtml:69
+msgid "Select user to add to the project"
+msgstr ""
+
+#: application/views/scripts/_form/project.phtml:74
+msgid "Email:"
+msgstr ""
+
+#: application/views/scripts/_form/project.phtml:75
+msgid "Start typing user's email here.."
+msgstr ""
+
+#: application/views/scripts/_form/project.phtml:76
+msgid "Role:"
+msgstr ""
+
+#: application/views/scripts/_form/project.phtml:79
+msgid "Team Member"
+msgstr ""
+
+#: application/views/scripts/_form/project.phtml:81
+msgid "Scenario:"
+msgstr ""
+
+#: application/views/scripts/_form/project.phtml:88
+msgid "Add"
+msgstr ""
+
+#: application/views/scripts/_form/project.phtml:92
+msgid "Close"
+msgstr ""
+
+#: application/views/scripts/_form/project.phtml:93
+msgid "Add to project"
+msgstr ""
+

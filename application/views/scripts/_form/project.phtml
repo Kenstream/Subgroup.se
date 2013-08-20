@@ -1,0 +1,197 @@
+<form enctype="application/x-www-form-urlencoded" action="" method="post">
+    <fieldset>
+        <legend><?php echo $this->element->getLegend(); ?></legend>
+
+        <?php echo $this->element->title ?>
+        <?php echo $this->element->description ?>
+        <?php echo $this->element->owner ?>
+        <?php echo $this->element->users ?>
+
+        <label for="divUserList"><?php echo $this->translate('Users in the project:'); ?></label>
+
+        <div id="divUserList" style="margin-bottom: 10px;"></div>
+
+        <script type="text/javascript">
+            var drawUserList = function(){
+                var parsedUsers = $('#hidUserList').val().split(';');
+
+                $('#divUserList').html('');
+
+                $.each(parsedUsers, function(index, value){
+                    var parsedValue = value.split(',');
+                    if (value.length > 0) {
+                        $('#divUserList').append('<div class="btn-group" style="margin-bottom:5px;"><button class="btn" disabled>' + parsedValue[0] + '</button><button id="btnUserListRemove_' + index + '" class="btn">&times;</button></div>');
+
+                        $('#btnUserListRemove_' + index).click(function(e){
+                            e.preventDefault();
+                            removeUserList($(this).prev().html());
+                            drawUserList();
+                        });
+                    }
+                });
+            };
+
+            var removeUserList = function(userEmail){
+                var parsedUsers = $('#hidUserList').val().split(';');
+                var newParsedUsers = [];
+
+                $.each(parsedUsers, function(index, value){
+                    var parsedValue = value.split(',');
+                    if (parsedValue[0] !== userEmail) {
+                        newParsedUsers.push(value);
+                    }
+                });
+
+                $('#hidUserList').val(newParsedUsers.join(';'));
+            };
+
+            var processAddUserSearch = function(userEmail) {
+                var responseData;
+
+                $.get('/ajax/check-email-exist', { email: userEmail }, function (data) {
+                    if (data.status === 'OK') {
+                        if(data.data.exist) {
+                            addUserSearchList();
+                            drawUserSearchList();
+                        }
+                    }
+                });
+            };
+
+            drawUserList();
+        </script>
+
+        <a href="#modalAddUser" role="button" class="btn btn-success" data-toggle="modal"><?php echo $this->translate("+ Add user to the project"); ?></a>
+
+        <div id="modalAddUser" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalAddUserLabel" aria-hidden="true">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="modalAddUserLabel"><?php echo $this->translate("Select user to add to the project"); ?></h3>
+            </div>
+            <div class="modal-body">
+
+                <input type="hidden" id="hidUserSearchList" value="" />
+                <label for="userSearch"><?php echo $this->translate('Email:'); ?></label>
+                <input type="text" id="userSearch" placeholder="<?php echo $this->translate('Start typing user\'s email here..'); ?>" />
+                <label for="selectRole"><?php echo $this->translate('Role:'); ?></label>
+                <select id="selectRole">
+                    <option value="L"><?php echo $this->translate('Team Leader'); ?></option>
+                    <option value="M"><?php echo $this->translate('Team Member'); ?></option>
+                </select>
+                <label for="selectScenario"><?php echo $this->translate('Scenario:'); ?></label>
+                <select id="selectScenario">
+                    <?php foreach($this->element->getScenarioOptions() as $id => $option) { ?>
+                        <option value="<?php echo $id; ?>"><?php echo $option; ?></option>
+                    <?php } ?>
+                </select>
+                <br/>
+                <input id="submitAddUserSearch" type="button" class="btn" value="<?php echo $this->translate('Add'); ?>" />
+                <div id="divUserSearchList" style="margin-top: 10px;"></div>
+            </div>
+            <div class="modal-footer">
+                <input type="button" class="btn" data-dismiss="modal" aria-hidden="true" value="<?php echo $this->translate('Close'); ?>" />
+                <input type="button" class="btn btn-primary" id="submitAddUser" value="<?php echo $this->translate('Add to project'); ?>" />
+            </div>
+            <script type="text/javascript">
+                $('#userSearch').typeahead({
+                    source: function (query, process) {
+                        var parsedUsers = $('#hidUserList').val().split(';');
+                        var exceptEmails = [];
+                        var owner = $('#ownerOfUser').val();
+
+                        $.each(parsedUsers, function(index, value){
+                            var parsedValue = value.split(',');
+                            if (value.length > 0) {
+                                exceptEmails.push(parsedValue[0]);
+                            }
+                        });
+
+                        var parsedUsers = $('#hidUserSearchList').val().split(';');
+
+                        $.each(parsedUsers, function(index, value){
+                            var parsedValue = value.split(',');
+                            if (value.length > 0) {
+                                exceptEmails.push(parsedValue[0]);
+                            }
+                        });
+
+                        return $.get('/ajax/get-email-list', { searchEmail: query, exceptEmail: exceptEmails.join(';'), owner: owner}, function (data) {
+                            return process(data.data.emails);
+                        });
+                    },
+                    items: 5
+                });
+
+                $('#submitAddUserSearch').click(function(){
+                    processAddUserSearch($('#userSearch').val());
+                });
+
+                var drawUserSearchList = function() {
+                    var parsedUsers = $('#hidUserSearchList').val().split(';');
+
+                    $('#divUserSearchList').html('');
+
+                    $.each(parsedUsers, function(index, value){
+                        var parsedValue = value.split(',');
+                        if (value.length > 0) {
+                            $('#divUserSearchList').append('<div class="btn-group" style="margin-bottom: 5px;"><button class="btn" disabled>' + parsedValue[0] + '</button><button id="btnUserSearchListRemove_' + index + '" class="btn">&times;</button></div>');
+
+                            $('#btnUserSearchListRemove_' + index).click(function(e){
+                                e.preventDefault();
+                                removeUserSearchList($(this).prev().html());
+                                drawUserSearchList();
+                            });
+                        }
+                    });
+                };
+
+                var addUserSearchList = function() {
+                    var parsedUsers = [];
+                    if ($('#hidUserSearchList').val() !== '') {
+                        parsedUsers = $('#hidUserSearchList').val().split(';');
+                    }
+
+                    parsedUsers.push($('#userSearch').val() + ',' + $('#selectRole').val() + ',' + $('#selectScenario').val());
+                    $('#userSearch').val('');
+                    $('#hidUserSearchList').val(parsedUsers.join(';'));
+                };
+
+                var removeUserSearchList = function(userEmail) {
+                    var parsedUsers = $('#hidUserSearchList').val().split(';');
+                    var newParsedUsers = [];
+
+                    $.each(parsedUsers, function(index, value){
+                        var parsedValue = value.split(',');
+                        if (parsedValue[0] !== userEmail) {
+                            newParsedUsers.push(value);
+                        }
+                    });
+
+                    $('#hidUserSearchList').val(newParsedUsers.join(';'));
+                };
+
+                $('#modalAddUser').on('show', function () {
+                    $('#hidUserSearchList').val('');
+                    $('#divUserSearchList').html('');
+                    $('#userSearch').val('');
+                });
+
+                $('#submitAddUser').on('click', function () {
+                    if ($('#hidUserList').val() !== '') {
+                        $('#hidUserList').val($('#hidUserList').val() + ';' + $('#hidUserSearchList').val());
+                    } else {
+                        $('#hidUserList').val($('#hidUserSearchList').val());
+                    }
+
+                    $('#hidUserSearchList').val('');
+                    $('#divUserSearchList').html('');
+                    $('#userSearch').val('');
+                    drawUserList();
+                    $('#modalAddUser').modal('hide');
+                });
+            </script>
+        </div>
+
+        <?php echo $this->element->submit ?>
+    </fieldset>
+</form>

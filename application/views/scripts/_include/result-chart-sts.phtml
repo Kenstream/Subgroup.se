@@ -1,0 +1,256 @@
+<div class="span9">
+    <?php if($this->identity->role != \Entities\User::TYPE_USER) { ?>
+    <ul class="nav nav-tabs" id="chartTab">
+      <li class="active"><a href="#tab-quantitative-data"><?php echo $this->translate("Quantitative data"); ?></a></li>
+      <li><a href="#tab-qualitative-data"><?php echo $this->translate("Qualitative data"); ?></a></li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane active" id="tab-quantitative-data">
+    <?php } ?>
+            <ul style="list-style: none; margin-left: 0">
+                <?php foreach($this->means as $mainMean) { ?>
+                <?php if(sizeof($mainMean['childs']) > 2) {
+                    // do calculation of spider web here
+                    $categoryNames = array();
+                    $categoryMeans = array();
+                    foreach($mainMean['childs'] as $subMainMean) {
+                        $categoryNames[] = "'" . $subMainMean['name'] . "'";
+                        foreach($subMainMean['mean'] as $type => $meanValue) {
+                            $categoryMeans[$type][] = $meanValue;
+                        }
+                    }
+                ?>
+                <li class="span8 well well-small" style="overflow: hidden;">
+                    <p><i class="icon-star"></i> <b><?php echo $mainMean['name']; ?></b></p>
+                    <div id="hc-container-<?php echo $mainMean['id']; ?>" style="min-width: 300px; min-height: 300px; margin: 0 auto"></div>
+                    <?php echo $this->partial('_include/assessment-sub-categories.phtml', array('mainMean' => $mainMean, 'identity' => $this->identity)); ?>
+                    <script type="text/javascript">
+                        $(function () {
+                            $('#hc-container-<?php echo $mainMean['id']; ?>').highcharts({
+                                chart: {
+                                    polar: true,
+                                    type: 'line',
+                                    marginBottom: -15,
+                                    },
+                                title: {
+                                    text: '<?php echo $mainMean["name"] ?>',
+                                },
+                                pane: {
+                                    size: '80%'
+                                },
+                                xAxis: {
+                                    categories: [<?php echo join(',', $categoryNames); ?>],
+                                    tickmarkPlacement: 'on',
+                                    lineWidth: 0
+                                },
+                                yAxis: {
+                                    gridLineInterpolation: 'polygon',
+                                    lineWidth: 0,
+                                    min: 0,
+                                    max: 5
+                                },
+                                tooltip: {
+                                    shared: true,
+                                    pointFormat: '<span style="color:{series.color}">{series.name}: <b>{point.y:,.2f}</b><br/>'
+                                },
+                                legend: {
+                                    verticalAlign: 'bottom',
+                                    shadow: true,
+                                    layout: 'vertical'
+                                },
+                                credits: {
+                                    href: 'http://www.subgroup.se',
+                                    text: 'Subgroup Consulting AB'
+                                },
+                                series: [
+                                <?php $i = 0; foreach($categoryMeans as $type => $categoryMean) { $i++;?>
+                                {
+                                    name: '<?php echo ($type == "L") ? $this->translate("Leader") : $this->translate("Your group"); echo " " . strtolower($mainMean["name"]) ?>',
+                                    data: [<?php echo join(',', $categoryMeans[$type]); ?>],
+                                    pointPlacement: 'on'
+                                }
+                                <?php echo ($i != sizeof($categoryMeans))?',':''; ?>
+                                <?php } ?>
+                                ]
+
+                            });
+                        });
+                    </script>
+                <?php } else { ?>
+                <li class="span8 well well-small" style="overflow: hidden;">
+                    <p><i class="icon-star"></i> <b><?php echo $mainMean['name']; ?></b></p>
+                <?php
+                    // do calculation for pie chart here
+                    foreach($mainMean['mean'] as $type => $mainMeanValue) {
+                        $categoryNames = array();
+                        $categoryMeans = array();
+                        $htmlToPrintArray = array();
+
+                        foreach($mainMean['childs'] as $subMainMean) {
+                            $categoryNames[] = "'" . $subMainMean['name'] . "'";
+                            $categoryMeans[$type][] = $subMainMean['mean'][$type];
+                        }
+
+                        foreach($mainMean['childs'] as $index => $subMainMean) {
+                            $mainPercentage = $subMainMean['mean'][$type]/array_sum($categoryMeans[$type]) * 100;
+                            $mainLabel = $subMainMean['name'] . ' ' . $this->translate('categories');
+
+                            $subLabels = array();
+                            $subMeans = array();
+                            $fixedSubMeans = array();
+                            foreach($subMainMean['childs'] as $endMain) {
+                                $subLabels[] = "'" . $endMain['name'] . "'";
+                                $subMeans[] = $endMain['mean'][$type];
+                            }
+
+                            foreach($subMeans as $subMean) {
+                                $fixedSubMeans[] = sprintf("%.2f", $subMean/array_sum($subMeans) * $mainPercentage);
+                            }
+
+                            $htmlToPrintString = sprintf("{y: %.2f,color: colors[%d],drilldown: {name: '%s',categories: [%s],data: [%s], color: colors[%d]}}",
+                                $mainPercentage, $index, $mainLabel, join(',', $subLabels), join(',', $fixedSubMeans), $index);
+
+                            $htmlToPrintArray[] = $htmlToPrintString;
+                        }
+                ?>
+                    <div id="hc-container-<?php echo $mainMean['id'] . "-" . $type; ?>" style="min-width: 300px; min-height: 300px; margin: 10px auto;"></div>
+                    <script type="text/javascript">
+                        $(function () {
+                            var colors = Highcharts.getOptions().colors,
+                                categories = [<?php echo join(',', $categoryNames); ?>],
+                                name = '<?php echo $mainMean["name"]. " - "; echo ($type == Entities\Invitation::TYPE_LEADER) ? $this->translate("Leader") : $this->translate("Members"); ?>',
+                                data = [<?php echo join(',', $htmlToPrintArray); ?>];
+
+
+                            // Build the data arrays
+                            var browserData = [];
+                            var versionsData = [];
+                            for (var i = 0; i < data.length; i++) {
+
+                                // add browser data
+                                browserData.push({
+                                    name: categories[i],
+                                    y: data[i].y,
+                                    color: data[i].color
+                                });
+
+                                // add version data
+                                for (var j = 0; j < data[i].drilldown.data.length; j++) {
+                                    var brightness = 0.2 - (j / data[i].drilldown.data.length) / 5 ;
+                                    versionsData.push({
+                                        name: data[i].drilldown.categories[j],
+                                        y: data[i].drilldown.data[j],
+                                        color: Highcharts.Color(data[i].color).brighten(brightness).get()
+                                    });
+                                }
+                            }
+
+                            // Create the chart
+                            $('#hc-container-<?php echo $mainMean['id'] . "-" . $type; ?>').highcharts({
+                                chart: {
+                                    type: 'pie'
+                                },
+                                title: {
+                                    text: '<?php echo $mainMean["name"]. " - "; echo ($type == Entities\Invitation::TYPE_LEADER) ? $this->translate("Leader") : $this->translate("Members"); ?>'
+                                },
+                                yAxis: {
+                                    title: {
+                                        text: '<?php echo $this->translate("Proportion of") . " " . $mainMean["name"]; ?>'
+                                    }
+                                },
+                                plotOptions: {
+                                    pie: {
+                                        shadow: false,
+                                        center: ['50%', '50%']
+                                    }
+                                },
+                                tooltip: {
+                                    valueSuffix: '%'
+                                },
+                                credits: {
+                                    href: 'http://www.subgroup.se',
+                                    text: 'Subgroup Consulting AB'
+                                },
+                                series: [{
+                                    name: '<?php echo $this->translate("Categories"); ?>',
+                                    data: browserData,
+                                    size: '75%',
+                                    dataLabels: {
+                                        formatter: function() {
+                                            return this.y > 5 ? '<b>'+ this.point.name +'</b>' : null;
+                                        },
+                                        color: '#ccc',
+                                        distance: -20
+                                    }
+                                }, {
+                                    name: '<?php echo $this->translate("Sub categories"); ?>',
+                                    data: versionsData,
+                                    size: '95%',
+                                    innerSize: '75%',
+                                    dataLabels: {
+                                        formatter: function() {
+                                            // display only if larger than 1
+                                            return this.y > 1 ? this.y +'%'  : null;
+                                        },
+                                        distance: 0
+                                    }
+                                }]
+                            });
+                        });
+                    </script>
+                    <?php } ?>
+                    <?php echo $this->partial('_include/assessment-sub-categories.phtml', array('mainMean' => $mainMean, 'identity' => $this->identity)); ?>
+                </li>
+                <?php } ?>
+                <?php } ?>
+            </ul>
+    <?php if($this->identity->role != \Entities\User::TYPE_USER) { ?>
+        </div>
+        <div class="tab-pane" id="tab-qualitative-data">
+        <ul class="well well-small" style="margin:0; padding:0; list-style: none;">
+        <?php foreach($this->scenariosUsed as $scenario) { ?>
+            <li>
+                <h5 style="margin-left: 15px;"><i class="icon icon-book"></i> <?php echo $scenario->getTitle();?></h5>
+                <ul style=" margin: 0px; padding: 0 10px; margin-bottom: 20px; list-style: none;" class="accordion" id="accordion-sub-scenario-<?php echo $scenario->getId(); ?>">
+                <?php
+                    $textareaElements = $this->em->getRepository('Entities\Scenario\Element')
+                        ->findBy(array('scenario' => $scenario->getId(), 'type' => \Entities\Scenario\Element::TYPE_TEXTAREA));
+                ?>
+                <?php foreach($textareaElements as $element) { ?>
+                    <li class="accordion-group" style="background-color: #fcfcfc">
+                        <div class="accordion-heading">
+                            <a style="font-weight: bold;" class="accordion-toggle" data-toggle="collapse" data-parent="accordion-sub-scenario-<?php echo $scenario->getId(); ?>" href="#collapse-element-<?php echo $element->getId(); ?>">
+                                <?php echo $element->getLabel(); ?>:
+                            </a>
+                        </div>
+                        <div id="collapse-element-<?php echo $element->getId(); ?>" class="accordion-body collapse">
+                        <?php $elementAnswers = $this->em->getRepository('Entities\Answer')->getAnswersByElementAndProject($element, $this->project); ?>
+                        <ul>
+                        <?php foreach($elementAnswers as $answer) { ?>
+                            <li>
+                                <p>
+                                    <div><?php echo '<b>' . $answer->getInvitation()->getUser()->getFirstName() . ' ' . $answer->getInvitation()->getUser()->getLastName() . '</b> ' .$this->translate("says"); ?></div>
+                                    <div style="font-style:italic">&ldquo;<?php echo (strlen(trim($answer->getValue())) > 0) ? $answer->getValue() : "..."; ?>&rdquo;</div>
+                                </p>
+                            </li>
+                        <?php } ?>
+                        </ul>
+                        </div>
+                    </li>
+                <?php } ?>
+                </ul>
+            </li>
+        <?php } ?>
+        </ul>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(function () {
+            $('#chartTab a').click(function (e) {
+                e.preventDefault();
+                $(this).tab('show');
+            })
+        });
+    </script>
+    <?php } ?>
+</div>
